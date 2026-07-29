@@ -1,15 +1,11 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { useLanguage } from '../contexts/LanguageContext';
 import { Link } from 'react-router-dom';
 import { Home, Users, Briefcase, Mail, FileText, Shield, Cookie, FileCheck } from 'lucide-react';
 
 const SitemapPage = () => {
-  const { language } = useLanguage();
-
-  const translations = {
-    it: {
+  const t = {
       title: 'Mappa del Sito',
       description: 'Naviga facilmente attraverso tutte le pagine del nostro sito web',
       sezioniPrincipali: 'Sezioni Principali',
@@ -18,48 +14,26 @@ const SitemapPage = () => {
       legale: 'Informazioni Legali',
       sitemapXml: 'Scarica la Sitemap XML',
       tornaHome: 'Torna alla Home'
-    },
-    en: {
-      title: 'Sitemap',
-      description: 'Easily navigate through all pages of our website',
-      sezioniPrincipali: 'Main Sections',
-      servizi: 'Services',
-      informazioni: 'Information',
-      legale: 'Legal Information',
-      sitemapXml: 'Download XML Sitemap',
-      tornaHome: 'Back to Home'
-    }
   };
-
-  const t = translations[language];
 
   const mainPages = [
     {
       path: '/',
       icon: Home,
-      title: { it: 'Home', en: 'Home' },
-      description: { 
-        it: 'Pagina principale del sito con panoramica dei servizi', 
-        en: 'Main page of the website with services overview' 
-      }
+      title: 'Home',
+      description: 'Pagina principale del sito con panoramica dei servizi'
     },
     {
       path: '/chi-siamo',
       icon: Users,
-      title: { it: 'Chi Siamo', en: 'About Us' },
-      description: { 
-        it: 'Scopri la nostra storia, mission e valori', 
-        en: 'Discover our story, mission and values' 
-      }
+      title: 'Chi Siamo',
+      description: 'Scopri la nostra storia, mission e valori'
     },
     {
       path: '/contatti',
       icon: Mail,
-      title: { it: 'Contatti', en: 'Contact' },
-      description: { 
-        it: 'Contattaci per informazioni e preventivi', 
-        en: 'Contact us for information and quotes' 
-      }
+      title: 'Contatti',
+      description: 'Contattaci per informazioni e preventivi'
     }
   ];
 
@@ -67,20 +41,14 @@ const SitemapPage = () => {
     {
       path: '/servizi',
       icon: Briefcase,
-      title: { it: 'Servizi', en: 'Services' },
-      description: { 
-        it: 'Tutti i nostri servizi web disponibili', 
-        en: 'All our available web services' 
-      }
+      title: 'Servizi',
+      description: 'Tutti i nostri servizi web disponibili'
     },
     {
       path: '/richiedi-preventivo',
       icon: FileText,
-      title: { it: 'Richiedi Preventivo', en: 'Request Quote' },
-      description: { 
-        it: 'Richiedi un preventivo personalizzato per il tuo progetto', 
-        en: 'Request a customized quote for your project' 
-      }
+      title: 'Richiedi Preventivo',
+      description: 'Richiedi un preventivo personalizzato per il tuo progetto'
     }
   ];
 
@@ -88,29 +56,20 @@ const SitemapPage = () => {
     {
       path: '/privacy',
       icon: Shield,
-      title: { it: 'Privacy Policy', en: 'Privacy Policy' },
-      description: { 
-        it: 'Informativa sulla privacy e trattamento dei dati', 
-        en: 'Privacy policy and data processing information' 
-      }
+      title: 'Privacy Policy',
+      description: 'Informativa sulla privacy e trattamento dei dati'
     },
     {
       path: '/cookie-policy',
       icon: Cookie,
-      title: { it: 'Cookie Policy', en: 'Cookie Policy' },
-      description: { 
-        it: 'Informativa sui cookie utilizzati sul sito', 
-        en: 'Information about cookies used on the website' 
-      }
+      title: 'Cookie Policy',
+      description: 'Informativa sui cookie utilizzati sul sito'
     },
     {
       path: '/termini-condizioni',
       icon: FileCheck,
-      title: { it: 'Termini e Condizioni', en: 'Terms and Conditions' },
-      description: { 
-        it: 'Termini e condizioni di utilizzo del sito', 
-        en: 'Terms and conditions of website use' 
-      }
+      title: 'Termini e Condizioni',
+      description: 'Termini e condizioni di utilizzo del sito'
     }
   ];
 
@@ -172,10 +131,10 @@ const SitemapPage = () => {
                         </div>
                         <div className="flex-1 min-w-0">
                           <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#ff7351] transition-colors">
-                            {page.title[language]}
+                            {page.title}
                           </h3>
                           <p className="text-sm text-gray-600 mt-1">
-                            {page.description[language]}
+                            {page.description}
                           </p>
                           <span className="text-xs text-[#ff7351] font-medium mt-2 inline-block">
                             {page.path}
@@ -209,10 +168,10 @@ const SitemapPage = () => {
                         </div>
                         <div className="flex-1 min-w-0">
                           <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#ff7351] transition-colors">
-                            {page.title[language]}
+                            {page.title}
                           </h3>
                           <p className="text-sm text-gray-600 mt-1">
-                            {page.description[language]}
+                            {page.description}
                           </p>
                           <span className="text-xs text-[#ff7351] font-medium mt-2 inline-block">
                             {page.path}
@@ -246,10 +205,10 @@ const SitemapPage = () => {
                         </div>
                         <div className="flex-1 min-w-0">
                           <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#ff7351] transition-colors">
-                            {page.title[language]}
+                            {page.title}
                           </h3>
                           <p className="text-sm text-gray-600 mt-1">
-                            {page.description[language]}
+                            {page.description}
                           </p>
                           <span className="text-xs text-[#ff7351] font-medium mt-2 inline-block">
                             {page.path}

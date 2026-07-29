@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'],
+        sans: ['"Titillium Web"', 'system-ui', 'sans-serif'],
+        display: ['"Titillium Web"', 'system-ui', 'sans-serif'],
       },
       colors: {
         primary: '#FF7351',
@@ -19,6 +20,9 @@ export default {
       backgroundImage: {
         'gradient-primary': 'linear-gradient(135deg, #FF7351 0%, #F96AB1 100%)',
         'gradient-secondary': 'linear-gradient(45deg, #FF7351 0%, #F96AB1 50%, #FF7351 100%)',
+      },
+      boxShadow: {
+        soft: '0 18px 45px rgba(15, 23, 42, 0.18)',
       },
     },
   },

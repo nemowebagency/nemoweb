@@ -1,18 +1,98 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { useLanguage } from '../contexts/LanguageContext';
-import { 
-  Home, Calendar, ShoppingBag, ArrowRight, Check,
-  Globe, Smartphone, CreditCard, Mail, Settings,
-  BarChart, Shield, Zap, Palette, Code
+import PageHero from '../components/PageHero';
+import {
+  Home,
+  Calendar,
+  ShoppingBag,
+  ArrowRight,
+  Check,
+  Globe,
+  Settings,
+  BarChart,
+  Shield,
+  Zap,
+  Palette,
 } from 'lucide-react';
 
-const ServiziPage = () => {
-  const navigate = useNavigate();
-  const { language } = useLanguage();
+const services = [
+  {
+    icon: Home,
+    title: 'Siti Vetrina',
+    value: 'sito-vetrina',
+    price: 'da 600€',
+    description:
+      'Siti web professionali e moderni per presentare la tua attività online. Perfetti per attività locali, professionisti e artisti che vogliono una presenza digitale di qualità.',
+    features: [
+      'Design moderno e responsive',
+      'Fino a 5 pagine personalizzate',
+      'Modulo di contatto avanzato',
+      'Ottimizzazione SEO base',
+      'Pannello di gestione contenuti',
+      'Supporto tecnico incluso',
+      'Velocità di caricamento ottimizzata',
+      'Integrazione social media',
+    ],
+    image:
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Workspace digitale con analytics e laptop',
+  },
+  {
+    icon: Calendar,
+    title: 'Siti di Prenotazione',
+    value: 'sito-prenotazione',
+    price: 'da 1600€',
+    description:
+      'Sistemi di prenotazione online completi per ristoranti, saloni, studi medici, B&B e tutte le attività che necessitano di gestione prenotazioni.',
+    features: [
+      'Sistema di calendario interattivo',
+      'Gestione disponibilità in tempo reale',
+      'Notifiche email automatiche',
+      'Pannello amministrativo completo',
+      'Integrazione con calendari esterni',
+      'Sistema di conferma automatica',
+      'Gestione cancellazioni',
+      'Statistiche e report prenotazioni',
+    ],
+    image:
+      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Team al lavoro su laptop in un ambiente collaborativo',
+  },
+  {
+    icon: ShoppingBag,
+    title: 'E-commerce',
+    value: 'e-commerce',
+    price: 'da 2100€',
+    description:
+      'Piattaforme di vendita online complete con catalogo prodotti, sistema di pagamento sicuro, gestione ordini e spedizioni per far crescere il tuo business.',
+    features: [
+      'Catalogo prodotti illimitato',
+      'Carrello e checkout sicuro',
+      'Integrazione pagamenti (PayPal, Stripe, etc.)',
+      'Gestione ordini e spedizioni',
+      'Pannello amministrativo avanzato',
+      'Integrazione con corrieri',
+      'Sistema di gestione inventario',
+      'Marketing e coupon system',
+    ],
+    image:
+      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Pagamento con carta su dispositivo digitale',
+  },
+];
 
+const includedFeatures = [
+  { icon: Globe, title: 'Design responsive', desc: 'Perfetto su ogni dispositivo' },
+  { icon: Zap, title: 'Performance ottimizzate', desc: 'Caricamento velocissimo' },
+  { icon: Shield, title: 'Sicurezza avanzata', desc: 'Protezione dati garantita' },
+  { icon: BarChart, title: 'Analytics integrati', desc: 'Monitora le performance' },
+  { icon: Settings, title: 'Facile da gestire', desc: 'Pannello intuitivo' },
+  { icon: Palette, title: 'Design personalizzato', desc: 'Unico come la tua attività' },
+];
+
+const ServiziPage = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -22,357 +102,280 @@ const ServiziPage = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
     );
 
-    const elements = document.querySelectorAll('[data-scroll]');
-    elements.forEach((el) => observer.observe(el));
-
+    document.querySelectorAll('[data-scroll]').forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
-  // Gestisce lo scroll quando si arriva con un anchor
   useEffect(() => {
     const hash = window.location.hash;
-    if (hash) {
-      setTimeout(() => {
-        const element = document.getElementById(hash.substring(1));
-        if (element) {
-          const offset = 100; // Offset per la navbar
-          const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - offset;
+    if (!hash) return;
 
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
-      }, 300);
-    }
+    const timeout = window.setTimeout(() => {
+      const element = document.getElementById(hash.substring(1));
+      if (!element) return;
+      const offset = 100;
+      const top = element.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }, 300);
+
+    return () => window.clearTimeout(timeout);
   }, []);
 
-  const translations = {
-    it: {
-      heroBadge: 'Le Nostre Soluzioni',
-      heroTitle: 'I nostri',
-      heroSpan: 'servizi',
-      heroDesc: 'Soluzioni web complete e personalizzate per far crescere il tuo business online',
-      richiediPreventivo: 'Richiedi preventivo',
-      includeTitle: 'Cosa include ogni',
-      includeSpan: 'progetto',
-      includeDesc: 'Caratteristiche standard in tutti i nostri servizi'
-    },
-    en: {
-      heroBadge: 'Our Solutions',
-      heroTitle: 'Our',
-      heroSpan: 'Services',
-      heroDesc: 'Complete and personalized web solutions to grow your online business',
-      richiediPreventivo: 'Request quote',
-      includeTitle: 'What every',
-      includeSpan: 'project includes',
-      includeDesc: 'Standard features in all our services'
-    }
-  };
-
-  const t = translations[language];
-
-  const services = [
-    {
-      icon: Home,
-      title: { it: 'Siti Vetrina', en: 'Showcase Websites' },
-      value: 'sito-vetrina',
-      price: { it: 'da 600€', en: 'from €600' },
-      description: { 
-        it: 'Siti web professionali e moderni per presentare la tua attività online. Perfetti per attività locali, professionisti e artisti che vogliono una presenza digitale di qualità.',
-        en: 'Professional and modern websites to present your business online. Perfect for local businesses, professionals and artists who want quality digital presence.'
-      },
-      features: {
-        it: [
-          'Design moderno e responsive',
-          'Fino a 5 pagine personalizzate',
-          'Modulo di contatto avanzato',
-          'Ottimizzazione SEO base',
-          'Pannello di gestione contenuti',
-          'Supporto tecnico incluso',
-          'Velocità di caricamento ottimizzata',
-          'Integrazione social media'
-        ],
-        en: [
-          'Modern and responsive design',
-          'Up to 5 customized pages',
-          'Advanced contact form',
-          'Basic SEO optimization',
-          'Content management panel',
-          'Technical support included',
-          'Optimized loading speed',
-          'Social media integration'
-        ]
-      },
-      image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&q=80',
-      alt: { it: 'Immagine che raffigura una scrivania con dei computer', en: 'Image depicting a desk with computers' }
-    },
-    {
-      icon: Calendar,
-      title: { it: 'Siti di Prenotazione', en: 'Booking Websites' },
-      value: 'sito-prenotazione',
-      price: { it: 'da 1600€', en: 'from €1600' },
-      description: { 
-        it: 'Sistemi di prenotazione online completi per ristoranti, saloni, studi medici, B&B e tutte le attività che necessitano di gestione prenotazioni.',
-        en: 'Complete online booking systems for restaurants, salons, medical practices, B&Bs and all businesses that need booking management.'
-      },
-      features: {
-        it: [
-          'Sistema di calendario interattivo',
-          'Gestione disponibilità in tempo reale',
-          'Notifiche email automatiche',
-          'Pannello amministrativo completo',
-          'Integrazione con calendari esterni',
-          'Sistema di conferma automatica',
-          'Gestione cancellazioni',
-          'Statistiche e report prenotazioni'
-        ],
-        en: [
-          'Interactive calendar system',
-          'Real-time availability management',
-          'Automatic email notifications',
-          'Complete administrative panel',
-          'Integration with external calendars',
-          'Automatic confirmation system',
-          'Cancellation management',
-          'Statistics and booking reports'
-        ]
-      },
-      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80',
-      alt: { it: 'Immagine che raffigura un tavolo con dei computer portatili', en: 'Image depicting a table with laptops' }
-    },
-    {
-      icon: ShoppingBag,
-      title: { it: 'E-commerce', en: 'E-commerce' },
-      value: 'e-commerce',
-      price: { it: 'da 2100€', en: 'from €2100' },
-      description: { 
-        it: 'Piattaforme di vendita online complete con catalogo prodotti, sistema di pagamento sicuro, gestione ordini e spedizioni per far crescere il tuo business.',
-        en: 'Complete online sales platforms with product catalog, secure payment system, order and shipping management to grow your business.'
-      },
-      features: {
-        it: [
-          'Catalogo prodotti illimitato',
-          'Carrello e checkout sicuro',
-          'Integrazione pagamenti (PayPal, Stripe, etc.)',
-          'Gestione ordini e spedizioni',
-          'Pannello amministrativo avanzato',
-          'Integrazione con corrieri',
-          'Sistema di gestione inventario',
-          'Marketing e coupon system'
-        ],
-        en: [
-          'Unlimited product catalog',
-          'Secure cart and checkout',
-          'Payment integration (PayPal, Stripe, etc.)',
-          'Order and shipping management',
-          'Advanced administrative panel',
-          'Courier integration',
-          'Inventory management system',
-          'Marketing and coupon system'
-        ]
-      },
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80',
-      alt: { it: 'Immagine che raffigura un uomo che vende qualcosa', en: 'Image depicting a man selling something' }
-    }
-  ];
-
-  const additionalFeatures = [
-    { 
-      icon: Globe, 
-      title: { it: 'Design Responsive', en: 'Responsive Design' }, 
-      desc: { it: 'Perfetto su ogni dispositivo', en: 'Perfect on every device' } 
-    },
-    { 
-      icon: Zap, 
-      title: { it: 'Performance Ottimizzate', en: 'Optimized Performance' }, 
-      desc: { it: 'Caricamento velocissimo', en: 'Very fast loading' } 
-    },
-    { 
-      icon: Shield, 
-      title: { it: 'Sicurezza Avanzata', en: 'Advanced Security' }, 
-      desc: { it: 'Protezione dati garantita', en: 'Guaranteed data protection' } 
-    },
-    { 
-      icon: BarChart, 
-      title: { it: 'Analytics Integrati', en: 'Integrated Analytics' }, 
-      desc: { it: 'Monitora le performance', en: 'Monitor performance' } 
-    },
-    { 
-      icon: Settings, 
-      title: { it: 'Facile da Gestire', en: 'Easy to Manage' }, 
-      desc: { it: 'Pannello intuitivo', en: 'Intuitive panel' } 
-    },
-    { 
-      icon: Palette, 
-      title: { it: 'Design Personalizzato', en: 'Custom Design' }, 
-      desc: { it: 'Unico come la tua attività', en: 'Unique like your business' } 
-    }
-  ];
-
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-slate-50 text-slate-900">
       <Navbar />
+      <main>
+        <PageHero
+          id="servizi"
+          scrollTarget="#servizi-elenco"
+          title={
+            <>
+              I nostri <span className="text-[#ffb399]">servizi</span>
+            </>
+          }
+          description="Soluzioni web complete e personalizzate per far crescere il tuo business online. Tre percorsi chiari, un unico partner."
+          actions={[
+            {
+              label: 'Scopri le soluzioni',
+              href: '#servizi-elenco',
+              variant: 'primary',
+            },
+            {
+              label: 'Richiedi preventivo',
+              href: '/richiedi-preventivo',
+              variant: 'link',
+            },
+          ]}
+        />
 
-      {/* Hero Section */}
-      <section className="relative bg-gray-900 text-white pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 right-20 w-72 h-72 bg-[#ff7351]/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#ff7351]/15 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6 border border-white/20">
-              <span className="text-sm font-medium">{t.heroBadge}</span>
-            </div>
-
-            <h1 className="font-bold leading-tight mb-6" style={{ fontSize: '60px' }}>
-              {t.heroTitle} <span className="text-[#ff7351]">{t.heroSpan}</span>
-            </h1>
-
-            <p className="text-xl text-gray-300 leading-relaxed">
-              {t.heroDesc}
-            </p>
+        {/* Services */}
+        <section
+          id="servizi-elenco"
+          className="section-padding relative scroll-mt-16 overflow-hidden border-b border-slate-200 bg-slate-50"
+        >
+          <div className="pointer-events-none absolute inset-0" aria-hidden>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_30%,_rgba(255,115,81,0.08),_transparent_45%),radial-gradient(circle_at_90%_70%,_rgba(255,115,81,0.05),_transparent_50%)]" />
+            <div className="absolute -right-24 top-1/4 h-72 w-72 rounded-full bg-[#ff7351]/10 blur-3xl" />
           </div>
-        </div>
-      </section>
 
-      {/* Services Details */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-24">
+          <div className="container-page relative z-10 space-y-16 md:space-y-24">
+            <header className="max-w-3xl space-y-3">
+              <img
+                src="/logo-512x512.png"
+                alt=""
+                aria-hidden
+                className="h-8 w-auto"
+                loading="lazy"
+                decoding="async"
+              />
+              <h2 className="section-title text-balance">
+                Tre soluzioni, un unico{' '}
+                <span className="text-[var(--brand-muted)]">ecosistema</span>
+              </h2>
+              <p className="max-w-2xl">
+                Siti vetrina, prenotazioni ed e-commerce: scegli il percorso giusto
+                per la tua attività.
+              </p>
+            </header>
+
             {services.map((service, index) => {
               const Icon = service.icon;
               const isEven = index % 2 === 0;
-              
+
               return (
-                <div 
-                  key={index} 
+                <article
+                  key={service.value}
                   id={service.value}
                   data-scroll
-                  className={`grid lg:grid-cols-2 gap-12 items-center opacity-0 translate-y-8 transition-all duration-700 ${!isEven ? 'lg:grid-flow-dense' : ''}`}
-                  style={{ scrollMarginTop: '100px' }}
+                  className={`grid scroll-mt-24 gap-8 opacity-0 translate-y-8 transition-all duration-700 lg:grid-cols-2 lg:items-center lg:gap-12 ${
+                    !isEven ? 'lg:grid-flow-dense' : ''
+                  }`}
+                  style={{ transitionDelay: `${index * 60}ms` }}
                 >
-                  <div className={isEven ? '' : 'lg:col-start-2'}>
-                    <div className="inline-flex items-center space-x-2 px-4 py-2 bg-[#ff7351]/10 rounded-full text-[#ff7351] font-medium mb-6">
-                      <Icon className="w-5 h-5" />
-                      <span>{service.title[language]}</span>
+                  <div className={`space-y-6 ${isEven ? '' : 'lg:col-start-2'}`}>
+                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[#ff7351]/10 text-[#ff7351] ring-1 ring-[#ff7351]/30">
+                      <Icon className="h-5 w-5" aria-hidden />
                     </div>
-                    
-                    <h2 className="text-4xl font-bold mb-2 text-gray-900">{service.title[language]}</h2>
-                    
-                    <div className="text-4xl font-bold text-[#ff7351] mb-6">{service.price[language]}</div>
-                    
-                    <p className="text-xl text-gray-600 mb-8 leading-relaxed">{service.description[language]}</p>
-                    
-                    <ul className="grid sm:grid-cols-2 gap-4 mb-8">
-                      {service.features[language].map((feature, i) => (
-                        <li key={i} className="flex items-start space-x-3">
-                          <Check className="w-5 h-5 text-[#ff7351] flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-700">{feature}</span>
+
+                    <div className="space-y-2">
+                      <h3 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+                        {service.title}
+                      </h3>
+                      <p className="text-2xl font-semibold text-[#ff7351]">
+                        {service.price}
+                      </p>
+                    </div>
+
+                    <p className="text-slate-600">{service.description}</p>
+
+                    <ul className="grid gap-3 sm:grid-cols-2">
+                      {service.features.map((feature) => (
+                        <li key={feature} className="flex items-start gap-2.5">
+                          <Check
+                            className="mt-0.5 h-4 w-4 shrink-0 text-[#ff7351]"
+                            aria-hidden
+                          />
+                          <span className="text-sm text-slate-700">{feature}</span>
                         </li>
                       ))}
                     </ul>
-                    
-                    <button
-                      onClick={() => navigate(`/richiedi-preventivo?service=${service.value}`)}
-                      className="px-8 py-4 bg-gradient-to-r from-[#ff7351] to-[#ff8466] text-white rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all inline-flex items-center space-x-2"
-                    >
-                      <span>{t.richiediPreventivo}</span>
-                      <ArrowRight className="w-5 h-5" />
-                    </button>
-                  </div>
-                  
-                  <div className={isEven ? '' : 'lg:col-start-1 lg:row-start-1'}>
-                    <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                      <img 
-                        src={service.image} 
-                        alt={service.alt[language] || service.title[language]} 
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+
+                    <div className="pt-1">
+                      <Link
+                        to={`/richiedi-preventivo?service=${service.value}`}
+                        className="btn-primary"
+                      >
+                        Richiedi preventivo
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
-      {/* Additional Features */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div data-scroll className="text-center mb-16 opacity-0 translate-y-8 transition-all duration-700">
-            <h2 className="font-bold text-gray-900 mb-4" style={{ fontSize: '35px' }}>
-              {t.includeTitle} <span className="text-[#ff7351]">{t.includeSpan}</span>
-            </h2>
-            <p className="text-xl text-gray-600">
-              {t.includeDesc}
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {additionalFeatures.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <div 
-                  key={index} 
-                  data-scroll
-                  className="bg-white p-8 rounded-2xl border border-gray-200 hover:border-[#ff7351] hover:shadow-xl transition-all duration-300 opacity-0 translate-y-8"
-                >
-                  <div className="w-12 h-12 bg-[#ff7351]/10 rounded-xl flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-[#ff7351]" />
+                  <div
+                    className={
+                      isEven ? '' : 'lg:col-start-1 lg:row-start-1'
+                    }
+                  >
+                    <div className="card-hover group overflow-hidden">
+                      <div
+                        className="min-h-[260px] bg-cover bg-center transition-transform duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] sm:min-h-[320px]"
+                        style={{ backgroundImage: `url('${service.image}')` }}
+                        role="img"
+                        aria-label={service.alt}
+                      />
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-gray-900">{feature.title[language]}</h3>
-                  <p className="text-gray-600">{feature.desc[language]}</p>
-                </div>
+                </article>
               );
             })}
           </div>
-        </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-[#ff7351] to-[#ff8466] text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-        </div>
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-bold mb-6" style={{ fontSize: '35px' }}>
-            Pronto a iniziare il tuo progetto?
-          </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Contattaci per una consulenza gratuita e ricevi un preventivo personalizzato
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => navigate('/richiedi-preventivo')}
-              className="px-8 py-4 bg-white text-[#ff7351] rounded-full font-semibold hover:bg-gray-100 transition-all inline-flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
-            >
-              <span>Richiedi un Preventivo</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => navigate('/contatti')}
-              className="px-8 py-4 bg-transparent text-white border-2 border-white rounded-full font-semibold hover:bg-white/10 transition-all"
-            >
-              Contattaci
-            </button>
+          <div
+            className="pointer-events-none absolute bottom-0 left-1/2 z-0 h-32 w-[100vw] -translate-x-1/2 overflow-hidden sm:h-40 md:h-48"
+            aria-hidden
+          >
+            <img
+              src="/Nero-Arancio.png"
+              alt=""
+              className="absolute bottom-0 left-4 right-4 h-64 w-full max-w-none translate-y-1/2 object-contain object-bottom opacity-10 sm:left-6 sm:right-6 sm:h-80 md:h-96 lg:left-8 lg:right-8"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
-        </div>
-      </section>
+        </section>
 
+        {/* Included in every project */}
+        <section className="section-padding relative overflow-hidden border-b border-[#ffd0c2] bg-[#fff5f1]">
+          <div className="pointer-events-none absolute inset-0" aria-hidden>
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_-10%,_rgba(255,115,81,0.18),_transparent_62%)]" />
+            <div className="services-it-grid absolute inset-0 opacity-[0.1]" />
+          </div>
+
+          <div className="container-page relative z-10 space-y-10">
+            <header
+              data-scroll
+              className="mx-auto max-w-3xl space-y-3 text-center opacity-0 translate-y-8 transition-all duration-700"
+            >
+              <img
+                src="/logo-512x512.png"
+                alt=""
+                aria-hidden
+                className="mx-auto h-8 w-auto"
+                loading="lazy"
+                decoding="async"
+              />
+              <h2 className="section-title text-balance">
+                Cosa include ogni{' '}
+                <span className="text-[#ff7351]">progetto</span>
+              </h2>
+              <p className="mx-auto max-w-2xl">
+                Caratteristiche standard in tutti i nostri servizi.
+              </p>
+            </header>
+
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {includedFeatures.map((feature, index) => {
+                const Icon = feature.icon;
+                return (
+                  <article
+                    key={feature.title}
+                    data-scroll
+                    className="card-hover group relative flex flex-col overflow-hidden p-5 opacity-0 translate-y-8 transition-all duration-700"
+                    style={{ transitionDelay: `${index * 70}ms` }}
+                  >
+                    <Icon
+                      className="pointer-events-none absolute right-0 top-1/2 h-24 w-24 -translate-y-1/2 translate-x-1/2 text-[#ff7351] opacity-20"
+                      strokeWidth={1.25}
+                      aria-hidden
+                    />
+                    <div className="relative space-y-3 pr-12">
+                      <div className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[#ff7351]/10 text-[#ff7351] ring-1 ring-[#ff7351]/30 transition-[background-color,box-shadow] duration-500 group-hover:bg-[#ff7351]/15 group-hover:shadow-[0_8px_24px_-12px_rgba(255,115,81,0.45)]">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="text-base font-semibold text-slate-900">
+                        {feature.title}
+                      </h3>
+                      <p className="text-sm text-slate-600">{feature.desc}</p>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="relative overflow-hidden border-b border-[#e85a3a]/30">
+          <div
+            className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage:
+                "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80')",
+            }}
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#e85a3a]/95 via-[#ff7351]/90 to-[#c94a32]/95"
+            aria-hidden
+          />
+
+          <div className="container-page relative z-10 py-16 md:py-20">
+            <div className="mx-auto max-w-3xl space-y-6 text-center">
+              <img
+                src="/Bianco-Arancio.png"
+                alt=""
+                aria-hidden
+                className="mx-auto h-8 w-auto opacity-90"
+                loading="lazy"
+                decoding="async"
+              />
+              <h2 className="section-title-light text-balance">
+                Pronto a iniziare il tuo{' '}
+                <span className="text-[#ffd0c2]">progetto</span>?
+              </h2>
+              <p className="mx-auto max-w-xl text-white/90">
+                Contattaci per una consulenza gratuita e ricevi un preventivo
+                personalizzato.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-4 pt-1">
+                <Link to="/richiedi-preventivo" className="btn-on-dark">
+                  Richiedi un preventivo
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <Link to="/contatti" className="btn-hero-link-on-dark">
+                  Contattaci
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
       <Footer />
     </div>
   );
 };
 
 export default ServiziPage;
-

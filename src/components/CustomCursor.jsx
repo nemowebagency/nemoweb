@@ -1,98 +1,58 @@
-import { useState, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 const CustomCursor = () => {
-  const [smoothPosition, setSmoothPosition] = useState({ x: 0, y: 0 })
-  const [isPointer, setIsPointer] = useState(false)
-  const [isVisible, setIsVisible] = useState(false)
-  const requestRef = useRef()
-  const previousTimeRef = useRef()
+  const cursorRef = useRef(null)
 
   useEffect(() => {
-    let mouseX = 0
-    let mouseY = 0
-    let currentX = 0
-    let currentY = 0
+    if (!window.matchMedia('(pointer: fine)').matches) return
 
-    const updateCursor = (e) => {
-      mouseX = e.clientX
-      mouseY = e.clientY
-      setIsVisible(true)
+    document.documentElement.classList.add('custom-cursor')
 
-      // Verifica se il cursore è su un elemento cliccabile
-      const target = e.target
-      const isClickable = 
-        target.tagName === 'A' ||
-        target.tagName === 'BUTTON' ||
-        target.onclick !== null ||
-        window.getComputedStyle(target).cursor === 'pointer'
+    const cursor = cursorRef.current
 
-      setIsPointer(isClickable)
+    const onMove = (e) => {
+      if (!cursor) return
+      cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`
+      cursor.style.opacity = '1'
     }
 
-    const animate = (timestamp) => {
-      if (previousTimeRef.current !== undefined) {
-        // Interpolazione smooth usando lerp
-        const speed = 0.2 // Valore più basso = movimento più smooth (0.1 è molto smooth)
-        currentX += (mouseX - currentX) * speed
-        currentY += (mouseY - currentY) * speed
-
-        setSmoothPosition({ x: currentX, y: currentY })
-      }
-      
-      previousTimeRef.current = timestamp
-      requestRef.current = requestAnimationFrame(animate)
+    const onLeave = () => {
+      if (!cursor) return
+      cursor.style.opacity = '0'
     }
 
-    const handleMouseEnter = () => setIsVisible(true)
-    const handleMouseLeave = () => setIsVisible(false)
-
-    // Aggiungi listener solo su desktop
-    if (window.matchMedia('(pointer: fine)').matches) {
-      requestRef.current = requestAnimationFrame(animate)
-      window.addEventListener('mousemove', updateCursor)
-      document.addEventListener('mouseenter', handleMouseEnter)
-      document.addEventListener('mouseleave', handleMouseLeave)
-    }
+    window.addEventListener('mousemove', onMove, { passive: true })
+    window.addEventListener('mouseleave', onLeave)
 
     return () => {
-      if (requestRef.current) {
-        cancelAnimationFrame(requestRef.current)
-      }
-      window.removeEventListener('mousemove', updateCursor)
-      document.removeEventListener('mouseenter', handleMouseEnter)
-      document.removeEventListener('mouseleave', handleMouseLeave)
+      document.documentElement.classList.remove('custom-cursor')
+      window.removeEventListener('mousemove', onMove)
+      window.removeEventListener('mouseleave', onLeave)
     }
   }, [])
 
-  // Non mostrare su dispositivi touch
-  if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
+  if (
+    typeof window !== 'undefined' &&
+    window.matchMedia('(pointer: coarse)').matches
+  ) {
     return null
   }
 
   return (
-    <>
-      {/* Cursore principale - cerchio che segue il cursore */}
-      <div
-        className={`fixed pointer-events-none z-[9999] transition-opacity duration-300 ${
-          isVisible ? 'opacity-100' : 'opacity-0'
-        }`}
-        style={{
-          left: `${smoothPosition.x}px`,
-          top: `${smoothPosition.y}px`,
-          transform: 'translate(-50%, -50%)',
-          willChange: 'transform',
-          filter: 'drop-shadow(0 0 4px rgba(0, 0, 0, 0.3))',
-        }}
-      >
-        <div
-          className={`rounded-full border-2 transition-all duration-300 ${
-            isPointer 
-              ? 'w-10 h-10 border-[#ff7351] bg-[#ff7351]/10' 
-              : 'w-8 h-8 border-white bg-white/10'
-          }`}
-        />
-      </div>
-    </>
+    <div
+      ref={cursorRef}
+      className="pointer-events-none fixed left-0 top-0 z-[9999] opacity-0 will-change-transform"
+      aria-hidden
+    >
+      <img
+        src="/cursore-cursor.png"
+        alt=""
+        draggable={false}
+        className="block h-6 w-6 origin-top-left select-none"
+        width={32}
+        height={32}
+      />
+    </div>
   )
 }
 

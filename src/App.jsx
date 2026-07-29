@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { LanguageProvider } from './contexts/LanguageContext';
 import ScrollToTop from './components/ScrollToTop';
 import SEO from './components/SEO';
 import CustomCursor from './components/CustomCursor';
@@ -18,14 +17,13 @@ import SitemapPage from './pages/SitemapPage';
 
 function App() {
   return (
-    <LanguageProvider>
-      <Router>
-        <ScrollToTop />
-        <SEO />
-        <CustomCursor />
-        <ScrollToTopButton />
-        <CookieBanner />
-        <Routes>
+    <Router>
+      <ScrollToTop />
+      <SEO />
+      <CustomCursor />
+      <ScrollToTopButton />
+      <CookieBanner />
+      <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/chi-siamo" element={<ChiSiamoPage />} />
         <Route path="/servizi" element={<ServiziPage />} />
@@ -35,9 +33,8 @@ function App() {
         <Route path="/cookie-policy" element={<CookiePolicyPage />} />
         <Route path="/termini-condizioni" element={<TerminiCondizioniPage />} />
         <Route path="/sitemap" element={<SitemapPage />} />
-        </Routes>
-      </Router>
-    </LanguageProvider>
+      </Routes>
+    </Router>
   );
 }
 

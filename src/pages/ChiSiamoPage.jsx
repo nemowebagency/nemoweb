@@ -1,92 +1,73 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { useLanguage } from '../contexts/LanguageContext';
+import PageHero from '../components/PageHero';
 import {
-  ArrowRight, Users, Target, Heart, Award, Rocket,
-  CheckCircle2, Zap, Shield, TrendingUp, Sparkles
+  ArrowRight,
+  Heart,
+  Target,
+  Zap,
+  Shield,
+  Users,
+  Palette,
+  HeadphonesIcon,
+  MessageCircle,
 } from 'lucide-react';
 
+const values = [
+  {
+    icon: Heart,
+    title: 'Passione',
+    description:
+      'Mettiamo cura in ogni progetto, dal design allo sviluppo finale.',
+  },
+  {
+    icon: Target,
+    title: 'Obiettivi chiari',
+    description:
+      'Lavoriamo per risultati concreti e misurabili per il tuo business.',
+  },
+  {
+    icon: Zap,
+    title: 'Innovazione',
+    description:
+      'Utilizziamo tecnologie moderne per soluzioni performanti e scalabili.',
+  },
+  {
+    icon: Shield,
+    title: 'Affidabilità',
+    description:
+      'Supporto continuo, aggiornamenti e assistenza quando ne hai bisogno.',
+  },
+];
+
+const stats = [
+  { number: '150+', label: 'Clienti soddisfatti' },
+  { number: '300+', label: 'Progetti completati' },
+  { number: '8+', label: 'Anni di esperienza' },
+  { number: '100%', label: 'Soddisfazione garantita' },
+];
+
+const approachItems = [
+  {
+    icon: MessageCircle,
+    title: 'Consulenza personalizzata',
+    description: 'Analizziamo le tue esigenze per creare la soluzione perfetta.',
+  },
+  {
+    icon: Palette,
+    title: 'Design unico',
+    description: 'Ogni sito è creato su misura per riflettere la tua identità.',
+  },
+  {
+    icon: HeadphonesIcon,
+    title: 'Supporto continuo',
+    description: 'Siamo sempre qui per aiutarti anche dopo il lancio.',
+  },
+];
+
 const ChiSiamoPage = () => {
-  const navigate = useNavigate();
-  const { language } = useLanguage();
-
-  const translations = {
-    it: {
-      heroBadge: 'La Nostra Storia',
-      heroTitle: 'Chi',
-      heroSpan: 'Siamo',
-      heroDescription: 'Siamo Nemo Web Agency, un\'agenzia digitale specializzata nella creazione di siti web professionali, moderni e orientati ai risultati. Dal 2016 aiutiamo imprese e professionisti a crescere online.',
-      missionTitle: 'La Nostra',
-      missionSpan: 'Mission',
-      missionDesc1: 'Il nostro obiettivo è creare siti web che non siano solo belli da vedere, ma che portino risultati concreti. Ogni progetto è studiato per rispondere alle esigenze specifiche del cliente e per raggiungere i suoi obiettivi di business.',
-      missionDesc2: 'Crediamo in un approccio personalizzato: ogni attività ha le sue caratteristiche uniche e merita una soluzione su misura. Per questo lavoriamo a stretto contatto con i nostri clienti per capire le loro necessità e trasformarle in soluzioni digitali efficaci.',
-      scopriServizi: 'Scopri i Servizi',
-      clientiSoddisfatti: 'Clienti Soddisfatti',
-      progettiCompletati: 'Progetti Completati',
-      anniEsperienza: 'Anni di Esperienza',
-      soddisfazioneGarantita: 'Soddisfazione Garantita',
-      valoriTitle: 'I Nostri',
-      valoriSpan: 'Valori',
-      valoriDesc: 'I principi che guidano il nostro lavoro ogni giorno',
-      teamName: 'Il Nostro Team',
-      teamRole: 'Web Developers & Designers',
-      teamDesc: 'Un team di professionisti esperti che lavora insieme per trasformare le tue idee in realtà digitali.',
-      approccioTitle: 'Il Nostro',
-      approccioSpan: 'Approccio',
-      approccioDesc1: 'Lavoriamo come partner del tuo business, non come semplici fornitori. Ogni progetto inizia con un\'attenta analisi delle tue esigenze e obiettivi, seguita da un design personalizzato e uno sviluppo curato nei minimi dettagli.',
-      approccioDesc2: 'Il nostro processo è trasparente: ti teniamo sempre informato sulle fasi di lavoro e siamo sempre disponibili per rispondere alle tue domande. Il successo del tuo progetto è anche il nostro successo.',
-      consulenza: 'Consulenza Personalizzata',
-      consulenzaDesc: 'Analizziamo le tue esigenze per creare la soluzione perfetta',
-      designUnico: 'Design Unico',
-      designDesc: 'Ogni sito è creato su misura per riflettere la tua identità',
-      supporto: 'Supporto Continuo',
-      supportoDesc: 'Siamo sempre qui per aiutarti anche dopo il lancio',
-      ctaTitle: 'Inizia il Tuo Progetto con Noi',
-      ctaDesc: 'Contattaci oggi stesso per una consulenza gratuita e scopri come possiamo aiutare il tuo business a crescere online.',
-      ctaButton1: 'Richiedi un Preventivo',
-      ctaButton2: 'Contattaci'
-    },
-    en: {
-      heroBadge: 'Our Story',
-      heroTitle: 'About',
-      heroSpan: 'Us',
-      heroDescription: 'We are Nemo Web Agency, a digital agency specialized in creating professional, modern and results-oriented websites. Since 2016 we help businesses and professionals grow online.',
-      missionTitle: 'Our',
-      missionSpan: 'Mission',
-      missionDesc1: 'Our goal is to create websites that are not only beautiful to look at, but that bring concrete results. Each project is designed to meet the specific needs of the client and achieve their business objectives.',
-      missionDesc2: 'We believe in a personalized approach: every business has its unique characteristics and deserves a tailor-made solution. That\'s why we work closely with our clients to understand their needs and turn them into effective digital solutions.',
-      scopriServizi: 'Discover Services',
-      clientiSoddisfatti: 'Satisfied Clients',
-      progettiCompletati: 'Completed Projects',
-      anniEsperienza: 'Years Experience',
-      soddisfazioneGarantita: 'Satisfaction Guaranteed',
-      valoriTitle: 'Our',
-      valoriSpan: 'Values',
-      valoriDesc: 'The principles that guide our work every day',
-      teamName: 'Our Team',
-      teamRole: 'Web Developers & Designers',
-      teamDesc: 'A team of expert professionals working together to transform your ideas into digital reality.',
-      approccioTitle: 'Our',
-      approccioSpan: 'Approach',
-      approccioDesc1: 'We work as partners of your business, not just suppliers. Each project starts with a careful analysis of your needs and objectives, followed by a personalized design and development cared for in every detail.',
-      approccioDesc2: 'Our process is transparent: we always keep you informed about the work phases and we are always available to answer your questions. The success of your project is also our success.',
-      consulenza: 'Personalized Consultation',
-      consulenzaDesc: 'We analyze your needs to create the perfect solution',
-      designUnico: 'Unique Design',
-      designDesc: 'Each site is created to measure to reflect your identity',
-      supporto: 'Continuous Support',
-      supportoDesc: 'We are always here to help you even after launch',
-      ctaTitle: 'Start Your Project with Us',
-      ctaDesc: 'Contact us today for a free consultation and discover how we can help your business grow online.',
-      ctaButton1: 'Request a Quote',
-      ctaButton2: 'Contact Us'
-    }
-  };
-
-  const t = translations[language];
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -96,272 +77,308 @@ const ChiSiamoPage = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
     );
 
-    const elements = document.querySelectorAll('[data-scroll]');
-    elements.forEach((el) => observer.observe(el));
-
+    document.querySelectorAll('[data-scroll]').forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
-  const values = [
-    {
-      icon: Heart,
-      title: { it: 'Passione', en: 'Passion' },
-      description: { 
-        it: 'Ammiamo quello che facciamo e mettiamo il cuore in ogni progetto, dal design allo sviluppo finale.',
-        en: 'We love what we do and put our heart into every project, from design to final development.'
-      }
-    },
-    {
-      icon: Target,
-      title: { it: 'Obiettivi Chiari', en: 'Clear Objectives' },
-      description: { 
-        it: 'Lavoriamo per raggiungere risultati concreti e misurabili per il tuo business.',
-        en: 'We work to achieve concrete and measurable results for your business.'
-      }
-    },
-    {
-      icon: Zap,
-      title: { it: 'Innovazione', en: 'Innovation' },
-      description: { 
-        it: 'Utilizziamo tecnologie all\'avanguardia per creare soluzioni moderne e performanti.',
-        en: 'We use cutting-edge technologies to create modern and performant solutions.'
-      }
-    },
-    {
-      icon: Shield,
-      title: { it: 'Affidabilità', en: 'Reliability' },
-      description: { 
-        it: 'Garantiamo supporto continuo, aggiornamenti regolari e assistenza quando ne hai bisogno.',
-        en: 'We guarantee continuous support, regular updates and assistance when you need it.'
-      }
-    }
-  ];
-
-  const team = [
-    {
-      name: { it: 'Il Nostro Team', en: 'Our Team' },
-      role: { it: 'Web Developers & Designers', en: 'Web Developers & Designers' },
-      description: { 
-        it: 'Un team di professionisti esperti che lavora insieme per trasformare le tue idee in realtà digitali.',
-        en: 'A team of expert professionals working together to transform your ideas into digital reality.'
-      }
-    }
-  ];
-
-  const stats = [
-    { number: '150+', label: { it: 'Clienti Soddisfatti', en: 'Satisfied Clients' } },
-    { number: '300+', label: { it: 'Progetti Completati', en: 'Completed Projects' } },
-    { number: '8+', label: { it: 'Anni di Esperienza', en: 'Years Experience' } },
-    { number: '100%', label: { it: 'Soddisfazione Garantita', en: 'Satisfaction Guaranteed' } }
-  ];
-
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-slate-50 text-slate-900">
       <Navbar />
+      <main>
+        <PageHero
+          id="chi-siamo"
+          scrollTarget="#about-mission"
+          title={
+            <>
+              Chi <span className="text-[#ffb399]">siamo</span>
+            </>
+          }
+          description="Siamo Nemo Web Agency, un'agenzia digitale specializzata nella creazione di siti web professionali, moderni e orientati ai risultati. Dal 2016 aiutiamo imprese e professionisti a crescere online."
+          actions={[
+            {
+              label: 'La nostra mission',
+              href: '#about-mission',
+              variant: 'primary',
+            },
+            { label: 'Contattaci', href: '/contatti', variant: 'link' },
+          ]}
+        />
 
-      {/* Hero Section */}
-      <section className="relative bg-gray-900 text-white pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 right-20 w-72 h-72 bg-[#ff7351]/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#ff7351]/15 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6 border border-white/20">
-              <Sparkles className="w-4 h-4 text-[#ff7351]" />
-              <span className="text-sm font-medium">{t.heroBadge}</span>
-            </div>
-
-            <h1 className="font-bold leading-tight mb-6" style={{ fontSize: '60px' }}>
-              {t.heroTitle} <span className="text-[#ff7351]">{t.heroSpan}</span>
-            </h1>
-
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              {t.heroDescription}
-            </p>
+        {/* Mission */}
+        <section
+          id="about-mission"
+          className="section-padding relative scroll-mt-16 overflow-hidden border-b border-slate-200 bg-slate-50"
+        >
+          <div className="pointer-events-none absolute inset-0" aria-hidden>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_30%,_rgba(255,115,81,0.08),_transparent_45%),radial-gradient(circle_at_90%_70%,_rgba(255,115,81,0.05),_transparent_50%)]" />
+            <div className="absolute -right-24 top-1/4 h-72 w-72 rounded-full bg-[#ff7351]/10 blur-3xl" />
           </div>
-        </div>
-      </section>
 
-      {/* Mission Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div data-scroll className="opacity-0 translate-y-8 transition-all duration-700">
-              <h2 className="font-bold text-gray-900 mb-6" style={{ fontSize: '35px' }}>
-                {t.missionTitle} <span className="text-[#ff7351]">{t.missionSpan}</span>
+          <div className="container-page relative z-10 space-y-12 md:space-y-16">
+            <header className="max-w-3xl space-y-3">
+              <img
+                src="/logo-512x512.png"
+                alt=""
+                aria-hidden
+                className="h-8 w-auto"
+                loading="lazy"
+                decoding="async"
+              />
+              <h2 className="section-title text-balance">
+                La nostra <span className="text-[var(--brand-muted)]">mission</span>
               </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                {t.missionDesc1}
+              <p className="max-w-2xl">
+                Creare siti web che non siano solo belli da vedere, ma che
+                portino risultati concreti al tuo business.
               </p>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                {t.missionDesc2}
-              </p>
-              <button
-                onClick={() => navigate('/servizi')}
-                className="px-8 py-4 bg-[#ff7351] text-white rounded-full font-semibold hover:bg-[#ff8466] transition-all flex items-center justify-center space-x-2 shadow-lg shadow-[#ff7351]/30 hover:shadow-xl hover:shadow-[#ff7351]/40"
+            </header>
+
+            <div className="grid gap-8 lg:grid-cols-2 lg:items-stretch lg:gap-10">
+              <div
+                data-scroll
+                className="flex flex-col justify-center space-y-4 opacity-0 translate-y-8 transition-all duration-700"
               >
-                <span>{t.scopriServizi}</span>
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div data-scroll className="opacity-0 translate-y-8 transition-all duration-700">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#ff7351]/20 to-transparent rounded-3xl blur-2xl transform rotate-6"></div>
-                <div className="relative bg-gray-50 rounded-3xl p-8 border border-gray-200">
-                  <div className="grid grid-cols-2 gap-6">
-                    {stats.map((stat, index) => (
-                      <div key={index} className="text-center">
-                        <div className="text-4xl font-bold text-[#ff7351] mb-2">
-                          {stat.number}
-                        </div>
-                        <div className="text-gray-600 text-sm font-medium">
-                          {stat.label[language]}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                <p>
+                  Il nostro obiettivo è studiare ogni progetto per rispondere
+                  alle esigenze specifiche del cliente e raggiungere i suoi
+                  obiettivi di business.
+                </p>
+                <p>
+                  Crediamo in un approccio personalizzato: ogni attività merita
+                  una soluzione su misura. Per questo lavoriamo a stretto
+                  contatto con i nostri clienti per trasformare le necessità in
+                  soluzioni digitali efficaci.
+                </p>
+                <div className="pt-2">
+                  <Link to="/servizi" className="btn-primary">
+                    Scopri i servizi
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Values Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div data-scroll className="text-center mb-16 opacity-0 translate-y-8 transition-all duration-700">
-            <h2 className="font-bold text-gray-900 mb-4" style={{ fontSize: '35px' }}>
-              {t.valoriTitle} <span className="text-[#ff7351]">{t.valoriSpan}</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {t.valoriDesc}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => {
-              const Icon = value.icon;
-              return (
+              <article
+                data-scroll
+                className="card-hover group overflow-hidden opacity-0 translate-y-8 transition-all duration-700"
+              >
                 <div
-                  key={index}
-                  data-scroll
-                  className="bg-white p-8 rounded-2xl border border-gray-200 hover:border-[#ff7351] hover:shadow-xl transition-all duration-300 opacity-0 translate-y-8"
-                >
-                  <div className="w-16 h-16 bg-gradient-to-r from-[#ff7351] to-[#ff8466] rounded-2xl flex items-center justify-center mb-6">
-                    <Icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    {value.title[language]}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {value.description[language]}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div data-scroll className="opacity-0 translate-y-8 transition-all duration-700">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#ff7351]/20 to-transparent rounded-3xl blur-2xl transform -rotate-6"></div>
-                <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-12 text-white">
-                  <Users className="w-16 h-16 text-[#ff7351] mb-6" />
-                  <h3 className="text-3xl font-bold mb-4">{team[0].name[language]}</h3>
-                  <p className="text-gray-300 mb-4">{team[0].role[language]}</p>
-                  <p className="text-gray-400 leading-relaxed">
-                    {team[0].description[language]}
-                  </p>
-                </div>
-              </div>
+                  className="h-full min-h-[280px] bg-cover bg-center transition-transform duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] sm:min-h-[320px]"
+                  style={{ backgroundImage: "url('/chisiamo.jpg')" }}
+                />
+              </article>
             </div>
 
-            <div data-scroll className="opacity-0 translate-y-8 transition-all duration-700">
-              <h2 className="font-bold text-gray-900 mb-6" style={{ fontSize: '35px' }}>
-                {t.approccioTitle} <span className="text-[#ff7351]">{t.approccioSpan}</span>
+            <div
+              data-scroll
+              className="card-hover grid grid-cols-2 gap-6 p-6 opacity-0 translate-y-8 transition-all duration-700 md:grid-cols-4 md:p-8"
+            >
+              {stats.map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <div className="mb-2 text-3xl font-extrabold tracking-tight text-[#ff7351] md:text-4xl">
+                    {stat.number}
+                  </div>
+                  <div className="text-sm text-slate-600">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div
+            className="pointer-events-none absolute bottom-0 left-1/2 z-0 h-32 w-[100vw] -translate-x-1/2 overflow-hidden sm:h-40 md:h-48"
+            aria-hidden
+          >
+            <img
+              src="/Nero-Arancio.png"
+              alt=""
+              className="absolute bottom-0 left-4 right-4 h-64 w-full max-w-none translate-y-1/2 object-contain object-bottom opacity-10 sm:left-6 sm:right-6 sm:h-80 md:h-96 lg:left-8 lg:right-8"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </section>
+
+        {/* Values */}
+        <section className="section-padding relative overflow-hidden border-b border-[#ffd0c2] bg-[#fff5f1]">
+          <div className="pointer-events-none absolute inset-0" aria-hidden>
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_-10%,_rgba(255,115,81,0.18),_transparent_62%)]" />
+            <div className="services-it-grid absolute inset-0 opacity-[0.1]" />
+          </div>
+
+          <div className="container-page relative z-10 space-y-10">
+            <header
+              data-scroll
+              className="mx-auto max-w-3xl space-y-3 text-center opacity-0 translate-y-8 transition-all duration-700"
+            >
+              <img
+                src="/logo-512x512.png"
+                alt=""
+                aria-hidden
+                className="mx-auto h-8 w-auto"
+                loading="lazy"
+                decoding="async"
+              />
+              <h2 className="section-title text-balance">
+                I nostri <span className="text-[#ff7351]">valori</span>
               </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                {t.approccioDesc1}
+              <p className="mx-auto max-w-2xl">
+                I principi che guidano il nostro lavoro ogni giorno.
               </p>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                {t.approccioDesc2}
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle2 className="w-6 h-6 text-[#ff7351] flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">{t.consulenza}</h4>
-                    <p className="text-gray-600">{t.consulenzaDesc}</p>
-                  </div>
+            </header>
+
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {values.map((value, index) => {
+                const Icon = value.icon;
+                return (
+                  <article
+                    key={value.title}
+                    data-scroll
+                    className="card-hover group relative flex flex-col overflow-hidden p-5 opacity-0 translate-y-8 transition-all duration-700"
+                    style={{ transitionDelay: `${index * 80}ms` }}
+                  >
+                    <Icon
+                      className="pointer-events-none absolute right-0 top-1/2 h-24 w-24 -translate-y-1/2 translate-x-1/2 text-[#ff7351] opacity-20"
+                      strokeWidth={1.25}
+                      aria-hidden
+                    />
+                    <div className="relative space-y-3 pr-12">
+                      <div className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[#ff7351]/10 text-[#ff7351] ring-1 ring-[#ff7351]/30 transition-[background-color,box-shadow] duration-500 group-hover:bg-[#ff7351]/15 group-hover:shadow-[0_8px_24px_-12px_rgba(255,115,81,0.45)]">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="text-base font-semibold text-slate-900">
+                        {value.title}
+                      </h3>
+                      <p className="text-sm text-slate-600">{value.description}</p>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Approach */}
+        <section className="section-padding relative overflow-hidden border-b border-slate-200 bg-white">
+          <div className="container-page space-y-10">
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
+              <article
+                data-scroll
+                className="card-hover relative overflow-hidden p-8 opacity-0 translate-y-8 transition-all duration-700 sm:p-10"
+              >
+                <Users
+                  className="mb-6 h-12 w-12 text-[#ff7351]"
+                  strokeWidth={1.25}
+                />
+                <h3 className="mb-2 text-2xl font-semibold text-slate-900">
+                  Il nostro team
+                </h3>
+                <p className="mb-4 text-sm font-medium text-[#ff7351]">
+                  Web Developers & Designers
+                </p>
+                <p className="text-slate-600">
+                  Un team di professionisti esperti che lavora insieme per
+                  trasformare le tue idee in realtà digitali.
+                </p>
+              </article>
+
+              <div
+                data-scroll
+                className="space-y-6 opacity-0 translate-y-8 transition-all duration-700"
+              >
+                <div className="space-y-3">
+                  <img
+                    src="/logo-512x512.png"
+                    alt=""
+                    aria-hidden
+                    className="h-8 w-auto"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <h2 className="section-title">
+                    Il nostro{' '}
+                    <span className="text-[var(--brand-muted)]">approccio</span>
+                  </h2>
+                  <p>
+                    Lavoriamo come partner del tuo business, non come semplici
+                    fornitori. Ogni progetto inizia con un&apos;analisi delle
+                    esigenze, seguita da design personalizzato e sviluppo curato
+                    nei minimi dettagli.
+                  </p>
+                  <p>
+                    Il processo è trasparente: ti teniamo sempre informato e
+                    siamo disponibili per rispondere alle tue domande.
+                  </p>
                 </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle2 className="w-6 h-6 text-[#ff7351] flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">{t.designUnico}</h4>
-                    <p className="text-gray-600">{t.designDesc}</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle2 className="w-6 h-6 text-[#ff7351] flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">{t.supporto}</h4>
-                    <p className="text-gray-600">{t.supportoDesc}</p>
-                  </div>
-                </div>
+
+                <ol className="space-y-4">
+                  {approachItems.map(({ icon: Icon, title, description }) => (
+                    <li key={title} className="flex gap-4">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[#ff7351]/10 text-[#ff7351] ring-1 ring-[#ff7351]/25">
+                        <Icon className="h-5 w-5" aria-hidden />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-slate-900">{title}</h4>
+                        <p className="text-sm text-slate-600">{description}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-[#ff7351] to-[#ff8466] text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-        </div>
+        {/* CTA */}
+        <section className="relative overflow-hidden border-b border-[#e85a3a]/30">
+          <div
+            className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage:
+                "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80')",
+            }}
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#e85a3a]/95 via-[#ff7351]/90 to-[#c94a32]/95"
+            aria-hidden
+          />
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-bold mb-6" style={{ fontSize: '35px' }}>
-            {t.ctaTitle}
-          </h2>
-          <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
-            {t.ctaDesc}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => navigate('/richiedi-preventivo')}
-              className="px-8 py-4 bg-white text-[#ff7351] rounded-full font-semibold hover:bg-gray-100 transition-all inline-flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
-            >
-              <span>{t.ctaButton1}</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => navigate('/contatti')}
-              className="px-8 py-4 bg-transparent text-white border-2 border-white rounded-full font-semibold hover:bg-white/10 transition-all"
-            >
-              {t.ctaButton2}
-            </button>
+          <div className="container-page relative z-10 py-16 md:py-20">
+            <div className="mx-auto max-w-3xl space-y-6 text-center">
+              <img
+                src="/Bianco-Arancio.png"
+                alt=""
+                aria-hidden
+                className="mx-auto h-8 w-auto opacity-90"
+                loading="lazy"
+                decoding="async"
+              />
+              <h2 className="section-title-light text-balance">
+                Inizia il tuo progetto{' '}
+                <span className="text-[#ffd0c2]">con noi</span>
+              </h2>
+              <p className="mx-auto max-w-xl text-white/90">
+                Contattaci per una consulenza gratuita e scopri come possiamo
+                aiutare il tuo business a crescere online.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-4 pt-1">
+                <Link to="/richiedi-preventivo" className="btn-on-dark">
+                  Richiedi un preventivo
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <Link to="/contatti" className="btn-hero-link-on-dark">
+                  Contattaci
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
-
+        </section>
+      </main>
       <Footer />
     </div>
   );
 };
 
 export default ChiSiamoPage;
-
