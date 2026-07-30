@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import Navbar from '../components/Navbar';
@@ -113,11 +113,7 @@ const ContattiPage = () => {
         <PageHero
           id="contatti"
           scrollTarget="#contatti-form"
-          title={
-            <>
-              Contatt<span className="text-[#ffb399]">aci</span>
-            </>
-          }
+          title="Contattaci"
           description="Siamo qui per aiutarti a realizzare il tuo progetto digitale. Compila il form o scrivici direttamente: ti rispondiamo il prima possibile."
           actions={[
             {
@@ -145,10 +141,10 @@ const ContattiPage = () => {
           <div className="container-page relative z-10 space-y-12 md:space-y-16">
             <header className="max-w-3xl space-y-3">
               <img
-                src="/logo-512x512.png"
+                src="/icona%20arancione.png"
                 alt=""
                 aria-hidden
-                className="h-8 w-auto"
+                className="h-10 w-auto"
                 loading="lazy"
                 decoding="async"
               />
@@ -403,7 +399,7 @@ const ContattiPage = () => {
             aria-hidden
           >
             <img
-              src="/Nero-Arancio.png"
+              src="/logo%20arancione.png"
               alt=""
               className="absolute bottom-0 left-4 right-4 h-64 w-full max-w-none translate-y-1/2 object-contain object-bottom opacity-10 sm:left-6 sm:right-6 sm:h-80 md:h-96 lg:left-8 lg:right-8"
               loading="lazy"
@@ -425,10 +421,10 @@ const ContattiPage = () => {
               className="mx-auto max-w-2xl space-y-5 text-center opacity-0 translate-y-8 transition-all duration-700"
             >
               <img
-                src="/logo-512x512.png"
+                src="/icona%20arancione.png"
                 alt=""
                 aria-hidden
-                className="mx-auto h-8 w-auto"
+                className="mx-auto h-10 w-auto"
                 loading="lazy"
                 decoding="async"
               />

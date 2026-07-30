@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+﻿import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getSeoData, baseUrl } from '../config/seoConfig';
 
@@ -94,7 +94,7 @@ const SEO = ({
       '@type': 'Organization',
       name: siteName,
       url: baseUrl,
-      logo: `${baseUrl}/logo-512x512.png`,
+      logo: `${baseUrl}/icona%20arancione.png`,
       description: finalDescription,
       sameAs: [],
       contactPoint: {

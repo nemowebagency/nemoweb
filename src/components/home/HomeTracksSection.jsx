@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import { Home, Calendar, ShoppingBag } from 'lucide-react';
 
@@ -41,10 +41,10 @@ const HomeTracksSection = () => (
       <header className="max-w-3xl space-y-4">
         <div className="space-y-3">
           <img
-            src="/logo-512x512.png"
+            src="/icona%20arancione.png"
             alt=""
             aria-hidden
-            className="h-8 w-auto"
+            className="h-10 w-auto"
             loading="lazy"
             decoding="async"
           />
@@ -97,7 +97,7 @@ const HomeTracksSection = () => (
       aria-hidden
     >
         <img
-          src="/Nero-Arancio.png"
+          src="/logo%20arancione.png"
           alt=""
           className="absolute bottom-0 left-4 right-4 h-64 w-full max-w-none translate-y-1/2 object-contain object-bottom opacity-10 sm:left-6 sm:right-6 sm:h-80 md:h-96 lg:left-8 lg:right-8"
           loading="lazy"

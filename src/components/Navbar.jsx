@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
@@ -52,7 +52,7 @@ const Navbar = () => {
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center">
           <img
-            src="/Nero-Arancio.png"
+            src="/Logo%20Nero.png"
             alt="Logo Nemo Web Agency"
             className="h-8 w-auto"
           />

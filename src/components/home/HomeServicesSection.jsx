@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import {
   Braces,
   Code2,
@@ -106,9 +106,9 @@ const HomeServicesSection = () => (
       <header className="fade-in-up max-w-3xl space-y-4">
         <div className="space-y-3">
           <img
-            src="/logo-512x512.png"
+            src="/icona%20arancione.png"
             alt="Nemo"
-            className="h-8 w-auto"
+            className="h-10 w-auto"
             loading="lazy"
             decoding="async"
           />

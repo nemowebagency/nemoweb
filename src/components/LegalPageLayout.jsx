@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, ArrowRight } from 'lucide-react';
 import Navbar from './Navbar';
@@ -65,10 +65,10 @@ const LegalPageLayout = ({
             >
               <div className="mb-8 space-y-3">
                 <img
-                  src="/logo-512x512.png"
+                  src="/icona%20arancione.png"
                   alt=""
                   aria-hidden
-                  className="h-8 w-auto"
+                  className="h-10 w-auto"
                   loading="lazy"
                   decoding="async"
                 />
@@ -84,7 +84,7 @@ const LegalPageLayout = ({
             aria-hidden
           >
             <img
-              src="/Nero-Arancio.png"
+              src="/Logo%20Nero.png"
               alt=""
               className="absolute bottom-0 left-4 right-4 h-64 w-full max-w-none translate-y-1/2 object-contain object-bottom opacity-10 sm:left-6 sm:right-6 sm:h-80 md:h-96 lg:left-8 lg:right-8"
               loading="lazy"
@@ -105,10 +105,10 @@ const LegalPageLayout = ({
               className="mx-auto max-w-2xl space-y-5 text-center opacity-0 translate-y-8 transition-all duration-700"
             >
               <img
-                src="/logo-512x512.png"
+                src="/icona%20arancione.png"
                 alt=""
                 aria-hidden
-                className="mx-auto h-8 w-auto"
+                className="mx-auto h-10 w-auto"
                 loading="lazy"
                 decoding="async"
               />

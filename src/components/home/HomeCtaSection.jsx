@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, FileText, MessageCircle, Rocket } from 'lucide-react';
 import PartnersCarousel from './PartnersCarousel';
@@ -42,10 +42,10 @@ const HomeCtaSection = () => (
         <header className="mx-auto max-w-3xl text-center">
           <div className="space-y-3">
             <img
-              src="/Nero-Arancio.png"
+              src="/icona%20arancione.png"
               alt=""
               aria-hidden
-              className="mx-auto h-8 w-auto"
+              className="mx-auto h-10 w-auto"
               loading="lazy"
               decoding="async"
             />

@@ -100,7 +100,7 @@ const HomeProjectsCtaSection = () => (
 
         <div className="pointer-events-none absolute bottom-0 left-1/2 z-0 h-32 w-[100vw] -translate-x-1/2 overflow-hidden sm:h-40 md:h-48">
           <img
-            src="/Bianco-Arancio.png"
+            src="/scritta%20bianca.png"
             alt=""
             className="absolute bottom-0 left-4 right-4 h-64 w-full max-w-none translate-y-1/2 object-contain object-bottom opacity-[0.12] sm:left-6 sm:right-6 sm:h-80 md:h-96 lg:left-8 lg:right-8"
             loading="lazy"
@@ -143,7 +143,7 @@ const HomeProjectsCtaSection = () => (
 
               <div className="absolute inset-0 flex items-center justify-center">
                 <img
-                  src="/Bianco-Arancio.png"
+                  src="/scritta%20bianca.png"
                   alt=""
                   aria-hidden
                   className="relative z-10 h-8 w-auto max-w-none shrink-0 object-contain opacity-90"

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+﻿import React, { useEffect, useMemo, useState } from 'react';
 import Lottie from 'lottie-react';
 import {
   ArrowRight,
@@ -120,7 +120,7 @@ const HeroDecorations = () => (
       aria-hidden
     >
       <img
-        src="/logo-512x512.png"
+        src="/icona%20arancione.png"
         alt=""
         className="absolute bottom-0 left-1/2 h-56 w-auto max-w-[min(95vw,40rem)] -translate-x-1/2 translate-y-1/2 opacity-10 sm:h-64 md:h-80"
         width={512}

@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
@@ -73,10 +73,10 @@ const HomeBridgeSection = () => (
     <div className="container-page relative z-10">
       <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
           <img
-            src="/logo-512x512.png"
+            src="/icona%20arancione.png"
             alt=""
             aria-hidden
-            className="h-8 w-auto opacity-80"
+            className="h-10 w-auto"
             loading="lazy"
             decoding="async"
           />

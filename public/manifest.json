@@ -1,4 +1,4 @@
-{
+﻿{
   "short_name": "Nemoweb",
   "name": "Nemoweb - Sito Web Moderno",
   "icons": [
@@ -8,7 +8,7 @@
       "sizes": "192x192"
     },
     {
-      "src": "logo-512x512.png",
+      "src": "icona arancione.png",
       "type": "image/png",
       "sizes": "512x512"
     }

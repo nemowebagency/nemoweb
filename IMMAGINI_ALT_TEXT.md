@@ -1,4 +1,4 @@
-# Lista Immagini - Attributi Alt Text
+﻿# Lista Immagini - Attributi Alt Text
 
 Questo file contiene tutte le immagini presenti nel sito che necessitano dell'attributo `alt`.
 Compila il campo "ALT TEXT DA INSERIRE" per ogni immagine e poi aggiornerò il codice.
@@ -14,7 +14,7 @@ Compila il campo "ALT TEXT DA INSERIRE" per ogni immagine e poi aggiornerò il c
 - **ALT TEXT DA INSERIRE**: `alt="Logo versione bianco e arancione Nemo Web Agency"`
 
 ### 2. Logo Navbar - Versione Nera (sopra sfondo chiaro)
-- **File**: `/Nero-Arancio.png`
+- **File**: `/Logo%20Nero.png`
 - **Linea**: 46-49
 - **Attuale**: `alt="Nemo Web Agency"`
 - **ALT TEXT DA INSERIRE**: `alt="Logo versione nero e arancione Nemo Web Agency"`

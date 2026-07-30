@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -164,10 +164,10 @@ const ServiziPage = () => {
           <div className="container-page relative z-10 space-y-16 md:space-y-24">
             <header className="max-w-3xl space-y-3">
               <img
-                src="/logo-512x512.png"
+                src="/icona%20arancione.png"
                 alt=""
                 aria-hidden
-                className="h-8 w-auto"
+                className="h-10 w-auto"
                 loading="lazy"
                 decoding="async"
               />
@@ -258,7 +258,7 @@ const ServiziPage = () => {
             aria-hidden
           >
             <img
-              src="/Nero-Arancio.png"
+              src="/logo%20arancione.png"
               alt=""
               className="absolute bottom-0 left-4 right-4 h-64 w-full max-w-none translate-y-1/2 object-contain object-bottom opacity-10 sm:left-6 sm:right-6 sm:h-80 md:h-96 lg:left-8 lg:right-8"
               loading="lazy"
@@ -280,10 +280,10 @@ const ServiziPage = () => {
               className="mx-auto max-w-3xl space-y-3 text-center opacity-0 translate-y-8 transition-all duration-700"
             >
               <img
-                src="/logo-512x512.png"
+                src="/icona%20arancione.png"
                 alt=""
                 aria-hidden
-                className="mx-auto h-8 w-auto"
+                className="mx-auto h-10 w-auto"
                 loading="lazy"
                 decoding="async"
               />
@@ -345,10 +345,10 @@ const ServiziPage = () => {
           <div className="container-page relative z-10 py-16 md:py-20">
             <div className="mx-auto max-w-3xl space-y-6 text-center">
               <img
-                src="/Bianco-Arancio.png"
+                src="/icona%20bianca.png"
                 alt=""
                 aria-hidden
-                className="mx-auto h-8 w-auto opacity-90"
+                className="mx-auto h-10 w-auto"
                 loading="lazy"
                 decoding="async"
               />

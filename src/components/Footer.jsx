@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, Facebook, Instagram } from 'lucide-react';
 
@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="space-y-4 md:max-w-sm">
             <Link to="/" className="flex items-center gap-2">
               <img
-                src="/Nero-Arancio.png"
+                src="/Logo%20Nero.png"
                 alt="Nemo Web Agency"
                 className="h-8 w-auto"
               />
@@ -178,6 +178,7 @@ const Footer = () => {
               Copyright © {new Date().getFullYear()} Nemo Web Agency. Tutti i
               diritti riservati.
             </p>
+            <p>P.IVA 02933840817</p>
           </div>
 
           <nav
