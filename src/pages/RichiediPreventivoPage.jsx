@@ -179,69 +179,6 @@ const RichiediPreventivoPage = () => {
           ]}
         />
 
-        {/* Benefits */}
-        <section className="section-padding relative overflow-hidden border-b border-[#ffd0c2] bg-[#fff5f1]">
-          <div className="pointer-events-none absolute inset-0" aria-hidden>
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_-10%,_rgba(255,115,81,0.18),_transparent_62%)]" />
-            <div className="services-it-grid absolute inset-0 opacity-[0.1]" />
-          </div>
-
-          <div className="container-page relative z-10 space-y-10">
-            <header
-              data-scroll
-              className="mx-auto max-w-3xl space-y-3 text-center opacity-0 translate-y-8 transition-all duration-700"
-            >
-              <img
-                src="/icona%20arancione.png"
-                alt=""
-                aria-hidden
-                className="mx-auto h-10 w-auto"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 className="section-title text-balance">
-                Perché richiedere un{' '}
-                <span className="text-[#ff7351]">preventivo</span>
-              </h2>
-              <p className="mx-auto max-w-2xl">
-                Tre motivi per partire con noi: velocità, chiarezza e zero
-                impegno.
-              </p>
-            </header>
-
-            <div className="grid gap-6 md:grid-cols-3">
-              {benefits.map((benefit, index) => {
-                const Icon = benefit.icon;
-                return (
-                  <article
-                    key={benefit.title}
-                    data-scroll
-                    className="card-hover group relative flex flex-col overflow-hidden p-5 text-center opacity-0 translate-y-8 transition-all duration-700 sm:p-6"
-                    style={{ transitionDelay: `${index * 80}ms` }}
-                  >
-                    <Icon
-                      className="pointer-events-none absolute right-0 top-1/2 h-24 w-24 -translate-y-1/2 translate-x-1/2 text-[#ff7351] opacity-20"
-                      strokeWidth={1.25}
-                      aria-hidden
-                    />
-                    <div className="relative mx-auto space-y-3">
-                      <div className="mx-auto inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#ff7351]/10 text-[#ff7351] ring-1 ring-[#ff7351]/30 transition-[background-color,box-shadow] duration-500 group-hover:bg-[#ff7351]/15 group-hover:shadow-[0_8px_24px_-12px_rgba(255,115,81,0.45)]">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <h3 className="text-base font-semibold text-slate-900">
-                        {benefit.title}
-                      </h3>
-                      <p className="text-sm text-slate-600">
-                        {benefit.description}
-                      </p>
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
         {/* Form */}
         <section
           id="preventivo-form"
@@ -253,7 +190,7 @@ const RichiediPreventivoPage = () => {
           </div>
 
           <div className="container-page relative z-10">
-            <div className="mx-auto max-w-3xl space-y-8">
+            <div className="space-y-8">
               <header className="space-y-3 text-center sm:text-left">
                 <img
                   src="/icona%20arancione.png"
@@ -505,6 +442,69 @@ const RichiediPreventivoPage = () => {
               loading="lazy"
               decoding="async"
             />
+          </div>
+        </section>
+
+        {/* Benefits */}
+        <section className="section-padding relative overflow-hidden border-b border-[#ffd0c2] bg-[#fff5f1]">
+          <div className="pointer-events-none absolute inset-0" aria-hidden>
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_-10%,_rgba(255,115,81,0.18),_transparent_62%)]" />
+            <div className="services-it-grid absolute inset-0 opacity-[0.1]" />
+          </div>
+
+          <div className="container-page relative z-10 space-y-10">
+            <header
+              data-scroll
+              className="mx-auto max-w-3xl space-y-3 text-center opacity-0 translate-y-8 transition-all duration-700"
+            >
+              <img
+                src="/icona%20arancione.png"
+                alt=""
+                aria-hidden
+                className="mx-auto h-10 w-auto"
+                loading="lazy"
+                decoding="async"
+              />
+              <h2 className="section-title text-balance">
+                Perché richiedere un{' '}
+                <span className="text-[#ff7351]">preventivo</span>
+              </h2>
+              <p className="mx-auto max-w-2xl">
+                Tre motivi per partire con noi: velocità, chiarezza e zero
+                impegno.
+              </p>
+            </header>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {benefits.map((benefit, index) => {
+                const Icon = benefit.icon;
+                return (
+                  <article
+                    key={benefit.title}
+                    data-scroll
+                    className="card-hover group relative flex flex-col overflow-hidden p-5 text-center opacity-0 translate-y-8 transition-all duration-700 sm:p-6"
+                    style={{ transitionDelay: `${index * 80}ms` }}
+                  >
+                    <Icon
+                      className="pointer-events-none absolute right-0 top-1/2 h-24 w-24 -translate-y-1/2 translate-x-1/2 text-[#ff7351] opacity-20"
+                      strokeWidth={1.25}
+                      aria-hidden
+                    />
+                    <div className="relative mx-auto space-y-3">
+                      <div className="mx-auto inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#ff7351]/10 text-[#ff7351] ring-1 ring-[#ff7351]/30 transition-[background-color,box-shadow] duration-500 group-hover:bg-[#ff7351]/15 group-hover:shadow-[0_8px_24px_-12px_rgba(255,115,81,0.45)]">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="text-base font-semibold text-slate-900">
+                        {benefit.title}
+                      </h3>
+                      <p className="text-sm text-slate-600">
+                        {benefit.description}
+                      </p>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
           </div>
         </section>
 

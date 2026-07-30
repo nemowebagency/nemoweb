@@ -178,7 +178,7 @@ const ContattiPage = () => {
                   href="mailto:nemowebagency@gmail.com"
                   className="card-hover group flex items-start gap-4 p-5"
                 >
-                  <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#ff7351]/10 text-[#ff7351] ring-1 ring-[#ff7351]/30 transition-[background-color,color,box-shadow] duration-500 group-hover:bg-[#ff7351] group-hover:text-white group-hover:shadow-[0_8px_24px_-12px_rgba(255,115,81,0.45)]">
+                  <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#ff7351]/10 text-[#ff7351] ring-1 ring-[#ff7351]/30">
                     <Mail className="h-5 w-5" aria-hidden />
                   </div>
                   <div>
@@ -189,20 +189,28 @@ const ContattiPage = () => {
                   </div>
                 </a>
 
-                <a
-                  href="tel:+393465745184"
-                  className="card-hover group flex items-start gap-4 p-5"
-                >
-                  <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#ff7351]/10 text-[#ff7351] ring-1 ring-[#ff7351]/30 transition-[background-color,color,box-shadow] duration-500 group-hover:bg-[#ff7351] group-hover:text-white group-hover:shadow-[0_8px_24px_-12px_rgba(255,115,81,0.45)]">
+                <div className="card-hover group flex items-start gap-4 p-5">
+                  <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#ff7351]/10 text-[#ff7351] ring-1 ring-[#ff7351]/30">
                     <Phone className="h-5 w-5" aria-hidden />
                   </div>
                   <div>
                     <h4 className="font-semibold text-slate-900">Telefono</h4>
-                    <p className="text-slate-600 transition-colors group-hover:text-[#ff7351]">
-                      +39 346 574 5184
+                    <p className="text-slate-600">
+                      <a
+                        href="tel:+393295417220"
+                        className="block transition-colors hover:text-[#ff7351] group-hover:text-[#ff7351]"
+                      >
+                        +39 329 541 7220
+                      </a>
+                      <a
+                        href="tel:+393663352382"
+                        className="block transition-colors hover:text-[#ff7351] group-hover:text-[#ff7351]"
+                      >
+                        +39 366 335 2382
+                      </a>
                     </p>
                   </div>
-                </a>
+                </div>
 
                 <div className="card-hover flex items-start gap-4 p-5">
                   <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#ff7351]/10 text-[#ff7351] ring-1 ring-[#ff7351]/30">
