@@ -14,28 +14,28 @@ export const seoConfig = {
   },
   pages: {
     '/': {
-      title: 'Nemo Web Agency — Creiamo siti web, software e soluzioni',
+      title: 'Nemo Web Agency - Creiamo siti web, software e soluzioni',
       description:
         'Progettiamo siti web su misura per far crescere la tua presenza online. Un partner unico per design, sviluppo e risultati concreti dal 2016.',
       keywords:
         'web agency Sicilia, siti web professionali, sviluppo software, e-commerce, siti prenotazione, Nemo Web Agency',
     },
     '/chi-siamo': {
-      title: 'Chi siamo — Nemo Web Agency dal 2016',
+      title: 'Chi siamo - Nemo Web Agency dal 2016',
       description:
         'Siamo Nemo Web Agency: creiamo siti web professionali, moderni e orientati ai risultati. Dal 2016 aiutiamo imprese e professionisti a crescere online.',
       keywords:
         'chi siamo Nemo Web Agency, agenzia web Sicilia, team sviluppo web, mission agenzia digitale',
     },
     '/servizi': {
-      title: 'Servizi web — Tre percorsi, un unico partner | Nemo Web Agency',
+      title: 'Servizi web - Tre percorsi, un unico partner | Nemo Web Agency',
       description:
         'Soluzioni web complete e personalizzate: siti vetrina, sistemi di prenotazione ed e-commerce. Tre percorsi chiari, un unico partner.',
       keywords:
         'servizi web, siti vetrina, e-commerce Sicilia, sistemi prenotazione, sviluppo siti web',
     },
     '/contatti': {
-      title: 'Contatti — Consulenza sul tuo progetto digitale | Nemo Web Agency',
+      title: 'Contatti - Consulenza sul tuo progetto digitale | Nemo Web Agency',
       description:
         'Contattaci per il tuo progetto digitale. Compila il form o scrivici: ti rispondiamo il prima possibile. Consulenza senza impegno.',
       keywords:
@@ -43,7 +43,7 @@ export const seoConfig = {
     },
     '/richiedi-preventivo': {
       title:
-        'Richiedi preventivo — Siti web e soluzioni digitali | Nemo Web Agency',
+        'Richiedi preventivo - Siti web e soluzioni digitali | Nemo Web Agency',
       description:
         'Richiedi un preventivo personalizzato per il tuo sito web. Consulenza gratuita, senza impegno: ti rispondiamo in tempi rapidi.',
       keywords:

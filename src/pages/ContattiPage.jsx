@@ -99,8 +99,14 @@ const ContattiPage = () => {
       }, 5000);
     } catch (err) {
       console.error('Errore invio email:', err);
+      const detail =
+        err?.text ||
+        err?.message ||
+        (typeof err === 'string' ? err : '');
       setError(
-        "Errore nell'invio del messaggio. Riprova più tardi o contattaci direttamente."
+        detail
+          ? `Errore nell'invio del messaggio: ${detail}`
+          : "Errore nell'invio del messaggio. Riprova più tardi o contattaci direttamente."
       );
       setIsLoading(false);
     }
@@ -221,7 +227,7 @@ const ContattiPage = () => {
                       Orari di disponibilità
                     </h4>
                     <div className="space-y-0.5 text-sm text-slate-600">
-                      <p>Lunedì – Venerdì: 9:00 – 18:00</p>
+                      <p>Lunedì - Venerdì: 9:00 - 18:00</p>
                       <p>Sabato: chiuso</p>
                       <p>Domenica: chiuso</p>
                     </div>

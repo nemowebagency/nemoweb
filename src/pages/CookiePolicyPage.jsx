@@ -12,7 +12,7 @@ const CookiePolicyPage = () => (
         Cookie <span className="text-[#ffb399]">policy</span>
       </>
     }
-    description="Informazioni dettagliate sull'utilizzo dei cookie nel nostro sito web."
+    description="Informazioni sull'utilizzo di cookie e storage tecnico sul sito di Nemo Web Agency."
     ctaTitle={
       <>
         Domande sui <span className="text-[#ff7351]">cookie</span>?
@@ -20,66 +20,50 @@ const CookiePolicyPage = () => (
     }
     ctaDescription="Se hai domande riguardo alla nostra cookie policy, non esitare a contattarci."
   >
-    <LegalSection title="Cosa sono i cookie">
+    <LegalSection title="1. Cosa sono i cookie">
       <p>
-        I cookie sono piccoli file di testo che i siti web memorizzano sul
-        dispositivo dell&apos;utente quando visita una pagina. Vengono utilizzati
-        per migliorare l&apos;esperienza di navigazione, fornire funzionalità
-        personalizzate e raccogliere informazioni su come gli utenti utilizzano
-        il sito.
+        I cookie sono piccoli file di testo che i siti web possono memorizzare
+        sul dispositivo dell&apos;utente. Tecnologie simili (come{' '}
+        <code>localStorage</code>) possono essere usate per salvare preferenze
+        tecniche necessarie al funzionamento del sito.
       </p>
     </LegalSection>
 
-    <LegalSection title="Tipi di cookie utilizzati">
+    <LegalSection title="2. Cosa utilizziamo">
       <div className="space-y-4">
         <LegalCard
-          title="Cookie tecnici"
-          note="Questi cookie non richiedono il consenso dell'utente in quanto sono essenziali per il funzionamento del sito."
+          title="Cookie / storage tecnici"
+          note="Necessari al funzionamento; non richiedono consenso di marketing."
         >
           <p>
-            Sono necessari per il funzionamento del sito e non possono essere
-            disabilitati. Permettono la navigazione e l&apos;utilizzo delle
-            funzionalità base del sito, come l&apos;accesso alle aree protette o
-            il mantenimento della sessione dell&apos;utente.
+            Sul sito salviamo la preferenza di consenso in{' '}
+            <code>localStorage</code> con chiave <code>cookieConsent</code>{' '}
+            (valori: <code>accepted</code> o <code>rejected</code>), così da
+            ricordare la scelta e non mostrare continuamente il banner.
           </p>
-        </LegalCard>
-
-        <LegalCard
-          title="Cookie di prestazione"
-          note="Questi cookie raccolgono dati in forma aggregata e anonima."
-        >
           <p>
-            Raccolgono informazioni anonime su come gli utenti utilizzano il
-            sito per migliorare le prestazioni e l&apos;esperienza utente. Questi
-            cookie ci aiutano a capire quali pagine sono più visitate, quanto
-            tempo gli utenti trascorrono sul sito e se ci sono problemi tecnici.
-          </p>
-        </LegalCard>
-
-        <LegalCard
-          title="Cookie di funzionalità"
-          note="Se non accetti questi cookie, alcune funzionalità potrebbero non essere disponibili."
-        >
-          <p>
-            Permettono al sito di ricordare le scelte dell&apos;utente (come
-            lingua, regione o preferenze di visualizzazione) per fornire
-            funzionalità migliorate e personalizzate. Questi cookie possono
-            anche essere utilizzati per ricordare modifiche apportate alle
-            dimensioni del testo, font e altre parti delle pagine web
-            personalizzabili.
+            Non utilizziamo cookie di profilazione, marketing o analytics.
           </p>
         </LegalCard>
       </div>
     </LegalSection>
 
-    <LegalSection title="Gestione dei cookie">
+    <LegalSection title="3. Servizi esterni">
       <p>
-        È possibile gestire o disabilitare i cookie attraverso le impostazioni
-        del proprio browser. Tuttavia, la disabilitazione di alcuni cookie
-        potrebbe limitare la funzionalità del sito o impedire l&apos;utilizzo di
-        determinate caratteristiche.
+        Il sito carica i font da <strong>Google Fonts</strong>. Si tratta di una
+        richiesta di risorse tipografiche verso i server di Google e non di un
+        cookie di profilazione impostato da Nemo Web Agency; possono comunque
+        essere trasmessi dati tecnici di connessione al fornitore.
       </p>
-      <p>Per maggiori informazioni su come gestire i cookie nei principali browser:</p>
+    </LegalSection>
+
+    <LegalSection title="4. Gestione delle preferenze">
+      <p>
+        Puoi gestire la preferenza tramite il banner cookie presente sul sito
+        (pulsante impostazioni in basso a sinistra dopo la prima scelta). Puoi
+        anche cancellare i dati del sito dalle impostazioni del browser.
+      </p>
+      <p>Nei principali browser:</p>
       <ul>
         <li>
           <strong>Google Chrome:</strong> Impostazioni → Privacy e sicurezza →
@@ -100,22 +84,27 @@ const CookiePolicyPage = () => (
       </ul>
     </LegalSection>
 
-    <LegalSection title="Cookie di terze parti">
+    <LegalSection title="5. Contatti">
       <p>
-        Alcuni servizi di terze parti utilizzati sul nostro sito possono
-        impostare i propri cookie. Questi includono servizi di analytics, social
-        media e altri servizi esterni. Non abbiamo controllo diretto su questi
-        cookie e ti consigliamo di consultare le rispettive policy sulla privacy
-        di questi servizi.
+        Per domande su questa Cookie Policy puoi contattare il titolare{' '}
+        <strong>Giuseppe Buscio</strong> (Nemo Web Agency):
       </p>
+      <ul>
+        <li>
+          Email:{' '}
+          <a href="mailto:nemowebagency@gmail.com">nemowebagency@gmail.com</a>
+        </li>
+        <li>
+          Telefono:{' '}
+          <a href="tel:+393295417220">+39 329 541 7220</a>
+        </li>
+      </ul>
     </LegalSection>
 
-    <LegalSection title="Aggiornamenti alla cookie policy">
+    <LegalSection title="6. Aggiornamenti">
       <p>
-        Ci riserviamo il diritto di modificare questa Cookie Policy in qualsiasi
-        momento. Le modifiche entreranno in vigore dal momento della
-        pubblicazione sul sito. Ti consigliamo di consultare periodicamente
-        questa pagina per rimanere aggiornato.
+        Ci riserviamo di aggiornare questa Cookie Policy. Ultimo aggiornamento:
+        agosto 2026.
       </p>
     </LegalSection>
   </LegalPageLayout>

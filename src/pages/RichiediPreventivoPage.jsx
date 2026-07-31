@@ -148,8 +148,14 @@ const RichiediPreventivoPage = () => {
       }, 5000);
     } catch (err) {
       console.error('Errore invio email:', err);
+      const detail =
+        err?.text ||
+        err?.message ||
+        (typeof err === 'string' ? err : '');
       setError(
-        "Errore nell'invio della richiesta. Riprova più tardi o contattaci direttamente."
+        detail
+          ? `Errore nell'invio della richiesta: ${detail}`
+          : "Errore nell'invio della richiesta. Riprova più tardi o contattaci direttamente."
       );
       setIsLoading(false);
     }
