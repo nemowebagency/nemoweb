@@ -11,7 +11,7 @@ const Footer = () => {
             <Link to="/" className="flex items-center gap-2">
               <img
                 src="/Logo%20Nero.png"
-                alt="Nemo Web Agency"
+                alt="Logo Nemo Web Agency"
                 className="h-8 w-auto"
               />
             </Link>
@@ -151,7 +151,7 @@ const Footer = () => {
                   <Facebook className="h-4 w-4" />
                 </a>
                 <a
-                  href="https://wa.me/393465745184"
+                  href="https://wa.me/393295417220"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="WhatsApp Nemo Web Agency"

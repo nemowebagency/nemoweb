@@ -45,6 +45,16 @@ const SEO = ({
       element.setAttribute('content', content);
     };
 
+    const removeMetaTag = (property, isProperty = false) => {
+      const selector = isProperty
+        ? `meta[property="${property}"]`
+        : `meta[name="${property}"]`;
+      const element = document.querySelector(selector);
+      if (element) {
+        element.remove();
+      }
+    };
+
     const updateLinkTag = (rel, href) => {
       const selector = `link[rel="${rel}"]`;
       let element = document.querySelector(selector);
@@ -75,7 +85,8 @@ const SEO = ({
     updateMetaTag('twitter:title', finalTitle);
     updateMetaTag('twitter:description', finalDescription);
     updateMetaTag('twitter:image', finalImage);
-    updateMetaTag('twitter:site', '@nemoagency');
+    removeMetaTag('twitter:site');
+    removeMetaTag('twitter:site', true);
 
     updateLinkTag('canonical', canonical);
 
@@ -89,37 +100,47 @@ const SEO = ({
       document.head.appendChild(jsonLdScript);
     }
 
-    const structuredData = {
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: siteName,
-      url: baseUrl,
-      logo: `${baseUrl}/icona%20arancione.png`,
-      description: finalDescription,
-      sameAs: [],
-      contactPoint: {
-        '@type': 'ContactPoint',
-        telephone: '+39-XXX-XXX-XXXX',
-        contactType: 'customer service',
-        availableLanguage: ['Italian'],
-      },
-      address: {
-        '@type': 'PostalAddress',
-        addressCountry: 'IT',
-        addressRegion: 'Sicilia',
-      },
-    };
+    let structuredData;
 
-    if (path !== '/') {
-      structuredData['@type'] = 'WebPage';
-      structuredData.name = finalTitle;
-      structuredData.description = finalDescription;
-      structuredData.url = canonical;
-      structuredData.inLanguage = 'it-IT';
-      structuredData.isPartOf = {
-        '@type': 'WebSite',
+    if (path === '/') {
+      structuredData = {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
         name: siteName,
         url: baseUrl,
+        logo: `${baseUrl}/icona%20arancione.png`,
+        description: finalDescription,
+        email: 'nemowebagency@gmail.com',
+        sameAs: [
+          'https://www.instagram.com/nemowebagency/',
+          'https://www.facebook.com/profile.php?id=61574662467359&locale=it_IT',
+        ],
+        contactPoint: {
+          '@type': 'ContactPoint',
+          telephone: '+39-329-541-7220',
+          contactType: 'customer service',
+          email: 'nemowebagency@gmail.com',
+          availableLanguage: ['Italian'],
+        },
+        address: {
+          '@type': 'PostalAddress',
+          addressCountry: 'IT',
+          addressRegion: 'Sicilia',
+        },
+      };
+    } else {
+      structuredData = {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: finalTitle,
+        description: finalDescription,
+        url: canonical,
+        inLanguage: 'it-IT',
+        isPartOf: {
+          '@type': 'WebSite',
+          name: siteName,
+          url: baseUrl,
+        },
       };
     }
 

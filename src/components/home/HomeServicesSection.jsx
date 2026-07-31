@@ -107,7 +107,7 @@ const HomeServicesSection = () => (
         <div className="space-y-3">
           <img
             src="/icona%20arancione.png"
-            alt="Nemo"
+            alt="Logo Nemo Web Agency"
             className="h-10 w-auto"
             loading="lazy"
             decoding="async"

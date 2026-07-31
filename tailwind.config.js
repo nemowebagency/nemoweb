@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Titillium Web"', 'system-ui', 'sans-serif'],
-        display: ['"Titillium Web"', 'system-ui', 'sans-serif'],
+        sans: ['"Montserrat"', 'system-ui', 'sans-serif'],
+        display: ['"Montserrat"', 'system-ui', 'sans-serif'],
       },
       colors: {
         primary: '#FF7351',

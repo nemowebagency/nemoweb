@@ -1,6 +1,7 @@
 ﻿{
-  "short_name": "Nemoweb",
-  "name": "Nemoweb - Sito Web Moderno",
+  "short_name": "Nemo",
+  "name": "Nemo Web Agency",
+  "description": "Creiamo siti web, software e soluzioni digitali.",
   "icons": [
     {
       "src": "logo-192x192.png",
@@ -16,5 +17,5 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#FF7351",
-  "background_color": "#ffffff"
-} 
+  "background_color": "#FAFAF9"
+}

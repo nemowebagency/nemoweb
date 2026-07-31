@@ -4,74 +4,74 @@ export const seoConfig = {
   default: {
     siteName: 'Nemo Web Agency',
     siteDescription:
-      'Agenzia web specializzata nella creazione di siti web professionali, moderni e orientati ai risultati. Siti vetrina, e-commerce e sistemi di prenotazione dal 2016.',
+      'Progettiamo siti web su misura per far crescere la tua presenza online. Partner unico per design, sviluppo e risultati concreti dal 2016.',
     keywords:
-      'web agency, siti web, sviluppo web, e-commerce, siti prenotazione, web design, Sicilia, agenzia digitale, siti vetrina, web development',
+      'web agency, siti web, sviluppo web, e-commerce, siti prenotazione, web design, Sicilia, Nemo Web Agency',
     author: 'Nemo Web Agency',
     ogImage: `${baseUrl}/og-image.jpg`,
     twitterCard: 'summary_large_image',
-    twitterSite: '@nemoagency',
     locale: 'it_IT',
   },
   pages: {
     '/': {
-      title: 'Nemo Web Agency - Creiamo il Tuo Successo Digitale',
+      title: 'Nemo Web Agency — Creiamo siti web, software e soluzioni',
       description:
-        "Sviluppiamo soluzioni digitali innovative con design moderno e tecnologie all'avanguardia. Siti web professionali, e-commerce e sistemi di prenotazione per far crescere il tuo business online.",
+        'Progettiamo siti web su misura per far crescere la tua presenza online. Un partner unico per design, sviluppo e risultati concreti dal 2016.',
       keywords:
-        'web agency Sicilia, siti web professionali, sviluppo siti web, agenzia digitale, e-commerce Sicilia, siti prenotazione, web design moderno, sviluppo web',
+        'web agency Sicilia, siti web professionali, sviluppo software, e-commerce, siti prenotazione, Nemo Web Agency',
     },
     '/chi-siamo': {
-      title: 'Chi Siamo - Nemo Web Agency | La Nostra Storia',
+      title: 'Chi siamo — Nemo Web Agency dal 2016',
       description:
-        "Siamo Nemo Web Agency, un'agenzia digitale specializzata nella creazione di siti web professionali dal 2016. Scopri la nostra mission, i nostri valori e il nostro team.",
+        'Siamo Nemo Web Agency: creiamo siti web professionali, moderni e orientati ai risultati. Dal 2016 aiutiamo imprese e professionisti a crescere online.',
       keywords:
-        'chi siamo nemo web agency, agenzia web Sicilia, team sviluppo web, storia agenzia digitale, mission web agency',
+        'chi siamo Nemo Web Agency, agenzia web Sicilia, team sviluppo web, mission agenzia digitale',
     },
     '/servizi': {
-      title: 'Servizi Web - Siti Vetrina, E-commerce e Prenotazione | Nemo Web Agency',
+      title: 'Servizi web — Tre percorsi, un unico partner | Nemo Web Agency',
       description:
-        'Offriamo servizi completi per ogni esigenza digitale: siti vetrina, sistemi di prenotazione ed e-commerce. Soluzioni personalizzate e moderne per il tuo business.',
+        'Soluzioni web complete e personalizzate: siti vetrina, sistemi di prenotazione ed e-commerce. Tre percorsi chiari, un unico partner.',
       keywords:
-        'servizi web, siti vetrina prezzi, e-commerce Sicilia, sistemi prenotazione online, sviluppo siti web, web design personalizzato',
+        'servizi web, siti vetrina, e-commerce Sicilia, sistemi prenotazione, sviluppo siti web',
     },
     '/contatti': {
-      title: 'Contatti - Richiedi una Consulenza Gratuita | Nemo Web Agency',
+      title: 'Contatti — Consulenza sul tuo progetto digitale | Nemo Web Agency',
       description:
-        'Contattaci per una consulenza gratuita sul tuo progetto digitale. Siamo disponibili per rispondere a tutte le tue domande e aiutarti a realizzare la tua presenza online.',
+        'Contattaci per il tuo progetto digitale. Compila il form o scrivici: ti rispondiamo il prima possibile. Consulenza senza impegno.',
       keywords:
-        'contatti web agency, consulenza gratuita, preventivo sito web, contattare nemo web agency',
+        'contatti Nemo Web Agency, consulenza sito web, preventivo web agency Sicilia',
     },
     '/richiedi-preventivo': {
-      title: 'Richiedi un Preventivo - Servizi Web Professionali | Nemo Web Agency',
+      title:
+        'Richiedi preventivo — Siti web e soluzioni digitali | Nemo Web Agency',
       description:
-        'Richiedi un preventivo gratuito per il tuo sito web. Compila il form con i dettagli del tuo progetto e riceverai una proposta personalizzata in tempi brevi.',
+        'Richiedi un preventivo personalizzato per il tuo sito web. Consulenza gratuita, senza impegno: ti rispondiamo in tempi rapidi.',
       keywords:
-        'preventivo sito web, preventivo gratuito, preventivo e-commerce, preventivo sito prenotazione, richiesta preventivo',
+        'preventivo sito web, preventivo e-commerce, preventivo prenotazione online, Nemo Web Agency',
     },
     '/privacy': {
-      title: 'Privacy Policy - Informativa sulla Privacy | Nemo Web Agency',
+      title: 'Privacy Policy | Nemo Web Agency',
       description:
-        'Informativa sulla privacy di Nemo Web Agency. Come raccogliamo, utilizziamo e proteggiamo i tuoi dati personali.',
-      keywords: 'privacy policy, informativa privacy, trattamento dati personali, GDPR',
+        'Informativa sulla privacy di Nemo Web Agency: come raccogliamo, utilizziamo e proteggiamo i dati personali.',
+      keywords: 'privacy policy, informativa privacy, GDPR, Nemo Web Agency',
     },
     '/cookie-policy': {
-      title: 'Cookie Policy - Informativa sui Cookie | Nemo Web Agency',
+      title: 'Cookie Policy | Nemo Web Agency',
       description:
-        'Informativa sui cookie utilizzati dal sito web di Nemo Web Agency. Scopri come utilizziamo i cookie e come gestirli.',
-      keywords: 'cookie policy, informativa cookie, gestione cookie, privacy cookie',
+        'Informativa sui cookie utilizzati dal sito di Nemo Web Agency e come gestirli.',
+      keywords: 'cookie policy, informativa cookie, Nemo Web Agency',
     },
     '/termini-condizioni': {
-      title: 'Termini e Condizioni - Condizioni di Utilizzo | Nemo Web Agency',
+      title: 'Termini e Condizioni | Nemo Web Agency',
       description:
-        "Termini e condizioni di utilizzo del sito web di Nemo Web Agency. Leggi le condizioni che regolano l'uso dei nostri servizi.",
-      keywords: 'termini e condizioni, condizioni di utilizzo, termini di servizio',
+        'Termini e condizioni di utilizzo del sito e dei servizi di Nemo Web Agency.',
+      keywords: 'termini e condizioni, condizioni di utilizzo, Nemo Web Agency',
     },
     '/sitemap': {
-      title: 'Sitemap - Mappa del Sito | Nemo Web Agency',
+      title: 'Sitemap | Nemo Web Agency',
       description:
-        'Naviga facilmente attraverso tutte le pagine del sito web di Nemo Web Agency. Mappa completa del sito con tutte le sezioni e pagine disponibili.',
-      keywords: 'sitemap, mappa del sito, navigazione sito, struttura sito web',
+        'Mappa del sito Nemo Web Agency: tutte le sezioni e le pagine disponibili.',
+      keywords: 'sitemap, mappa del sito, Nemo Web Agency',
     },
   },
 };
