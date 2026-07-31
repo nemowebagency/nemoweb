@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PageHero from '../components/PageHero';
+import FaqSection from '../components/FaqSection';
+import { getGeoFaqs } from '../config/geoConfig';
 import {
   ArrowRight,
   Heart,
@@ -96,7 +98,7 @@ const ChiSiamoPage = () => {
               Chi <span className="text-[#ffb399]">siamo</span>
             </>
           }
-          description="Siamo Nemo Web Agency, un'agenzia digitale specializzata nella creazione di siti web professionali, moderni e orientati ai risultati. Dal 2016 aiutiamo imprese e professionisti a crescere online."
+          description="Nemo Web Agency è un'agenzia digitale italiana attiva dal 2016: creiamo siti web professionali, moderni e orientati ai risultati per imprese e professionisti che vogliono crescere online."
           actions={[
             {
               label: 'La nostra mission',
@@ -131,8 +133,9 @@ const ChiSiamoPage = () => {
                 La nostra <span className="text-[var(--brand-muted)]">mission</span>
               </h2>
               <p className="max-w-2xl">
-                Creare siti web che non siano solo belli da vedere, ma che
-                portino risultati concreti al tuo business.
+                La mission di Nemo è creare siti web che non siano solo belli da
+                vedere, ma che portino risultati concreti al tuo business:
+                presenza online chiara, misurabile e pensata per convertire.
               </p>
             </header>
 
@@ -329,6 +332,11 @@ const ChiSiamoPage = () => {
             </div>
           </div>
         </section>
+
+        <FaqSection
+          items={getGeoFaqs('/chi-siamo')}
+          intro="Chi siamo, da quanto operiamo e come lavoriamo con i clienti."
+        />
 
         {/* CTA */}
         <section className="relative overflow-hidden border-b border-[#e85a3a]/30">

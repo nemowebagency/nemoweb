@@ -1,0 +1,42 @@
+# Nemo Web Agency
+
+> Agenzia digitale italiana: siti web su misura, software e soluzioni digitali.
+> Design, sviluppo e strategia in un unico partner. Attivi dal 2016. Operativi in Sicilia / Italia.
+
+## Contatti
+
+- Sito: https://www.nemoagency.it/
+- Email: nemowebagency@gmail.com
+- Telefono: +39 329 541 7220
+- Instagram: https://www.instagram.com/nemowebagency/
+- Facebook: https://www.facebook.com/profile.php?id=61574662467359
+
+## Pagine principali
+
+- [Home](https://www.nemoagency.it/): panoramica servizi e approccio
+- [Servizi](https://www.nemoagency.it/servizi): siti vetrina, prenotazioni, e-commerce (prezzi da)
+- [Chi siamo](https://www.nemoagency.it/chi-siamo): mission, valori, storia dal 2016
+- [Contatti](https://www.nemoagency.it/contatti): form e riferimenti
+- [Richiedi preventivo](https://www.nemoagency.it/richiedi-preventivo): richiesta senza impegno
+
+## Servizi (sintesi)
+
+- Siti vetrina: da 600€ - presenza online professionale e responsive
+- Siti di prenotazione: da 1600€ - calendario, disponibilità, notifiche
+- E-commerce: da 2100€ - catalogo, pagamenti, ordini e spedizioni
+
+## Fatti citabili
+
+- Nome brand: Nemo Web Agency
+- Settore: web agency / sviluppo siti web / digital design
+- Lingua contenuti: italiano
+- Anno di inizio: 2016
+- Regione: Sicilia, Italia
+
+## Policy e info legali
+
+- [Privacy](https://www.nemoagency.it/privacy)
+- [Cookie policy](https://www.nemoagency.it/cookie-policy)
+- [Termini e condizioni](https://www.nemoagency.it/termini-condizioni)
+- [Sitemap HTML](https://www.nemoagency.it/sitemap)
+- [Sitemap XML](https://www.nemoagency.it/sitemap.xml)

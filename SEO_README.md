@@ -45,6 +45,22 @@ Aggiorna `src/config/seoConfig.js` (e allinea i default home in `index.html` se 
 - `https://www.nemoagency.it/sitemap.xml` e `/robots.txt`
 - Lighthouse SEO
 
+## GEO (Generative Engine Optimization)
+
+Allineamento 2026 per citazioni da motori generativi:
+
+| Asset | Ruolo |
+|--------|--------|
+| `public/llms.txt` | Mappa brand, servizi, contatti e URL canonici per agent AI |
+| `public/robots.txt` | Allow espliciti per GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended, ecc. |
+| `src/config/geoConfig.js` | FAQ per Home, Servizi, Chi siamo (source of truth) |
+| `src/components/FaqSection.jsx` | FAQ visibili on-page |
+| `SEO.jsx` `@graph` | Organization / WebPage + **FAQPage** allineato al copy |
+
+Modifica le FAQ solo in `geoConfig.js`: UI e JSON-LD restano sincronizzati.
+
+**Limite SPA:** il contenuto FAQ è client-rendered. Per crawler AI che non eseguono JS, `llms.txt` e i meta statici in `index.html` restano la rete di sicurezza; un prerender futuro migliorerebbe l’estrazione HTML.
+
 ## Note SPA
 
 I meta si aggiornano lato client. Per massimizzare l’indicizzazione futura si può valutare prerender/SSR; fuori dallo scope di questo allineamento.

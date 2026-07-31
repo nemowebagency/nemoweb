@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PageHero from '../components/PageHero';
+import FaqSection from '../components/FaqSection';
+import { getGeoFaqs } from '../config/geoConfig';
 import {
   Home,
   Calendar,
@@ -136,7 +138,7 @@ const ServiziPage = () => {
               I nostri <span className="text-[#ffb399]">servizi</span>
             </>
           }
-          description="Soluzioni web complete e personalizzate per far crescere il tuo business online. Tre percorsi chiari, un unico partner."
+          description="Nemo offre tre percorsi web chiari — siti vetrina, prenotazioni ed e-commerce — con un unico partner per design, sviluppo e risultati. Soluzioni personalizzate per far crescere il tuo business online."
           actions={[
             {
               label: 'Scopri le soluzioni',
@@ -176,8 +178,9 @@ const ServiziPage = () => {
                 <span className="text-[var(--brand-muted)]">ecosistema</span>
               </h2>
               <p className="max-w-2xl">
-                Siti vetrina, prenotazioni ed e-commerce: scegli il percorso giusto
-                per la tua attività.
+                Nemo Web Agency sviluppa siti vetrina (da 600€), sistemi di
+                prenotazione (da 1600€) ed e-commerce (da 2100€). Scegli il
+                percorso giusto: un solo team ti segue da design a lancio.
               </p>
             </header>
 
@@ -326,6 +329,11 @@ const ServiziPage = () => {
             </div>
           </div>
         </section>
+
+        <FaqSection
+          items={getGeoFaqs('/servizi')}
+          intro="Risposte chiare su percorsi, prezzi di partenza e come richiedere un preventivo."
+        />
 
         {/* CTA */}
         <section className="relative overflow-hidden border-b border-[#e85a3a]/30">

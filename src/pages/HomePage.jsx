@@ -1,12 +1,14 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import FaqSection from '../components/FaqSection';
 import Hero from '../components/home/Hero';
 import HomeTracksSection from '../components/home/HomeTracksSection';
 import HomeBridgeSection from '../components/home/HomeBridgeSection';
 import HomeServicesSection from '../components/home/HomeServicesSection';
 import HomeProjectsCtaSection from '../components/home/HomeProjectsCtaSection';
 import HomeCtaSection from '../components/home/HomeCtaSection';
+import { getGeoFaqs } from '../config/geoConfig';
 
 const HomePage = () => {
   return (
@@ -19,6 +21,10 @@ const HomePage = () => {
         <HomeServicesSection />
         <HomeProjectsCtaSection />
         <HomeCtaSection />
+        <FaqSection
+          items={getGeoFaqs('/')}
+          intro="Cosa facciamo, dove operiamo e come contattarci — in risposte brevi e citabili."
+        />
       </main>
       <Footer />
     </div>

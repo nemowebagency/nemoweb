@@ -1,15 +1,37 @@
 # robots.txt per Nemo Web Agency
 # https://www.nemoagency.it/robots.txt
+# llms.txt: https://www.nemoagency.it/llms.txt
 
 User-agent: *
 Allow: /
 
+# AI / generative search crawlers (explicit allow)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
 # Sitemap
 Sitemap: https://www.nemoagency.it/sitemap.xml
-
-# Disallow admin/private pages if any
-# Disallow: /admin/
-# Disallow: /private/
-
-# Crawl-delay (optional)
-# Crawl-delay: 1

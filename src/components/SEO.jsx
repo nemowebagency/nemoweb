@@ -1,6 +1,7 @@
 ﻿import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getSeoData, baseUrl } from '../config/seoConfig';
+import { getGeoFaqs } from '../config/geoConfig';
 
 const SEO = ({
   title,
@@ -100,49 +101,70 @@ const SEO = ({
       document.head.appendChild(jsonLdScript);
     }
 
-    let structuredData;
+    const organization = {
+      '@type': 'Organization',
+      '@id': `${baseUrl}/#organization`,
+      name: siteName,
+      url: baseUrl,
+      logo: `${baseUrl}/icona%20arancione.png`,
+      description: finalDescription,
+      email: 'nemowebagency@gmail.com',
+      sameAs: [
+        'https://www.instagram.com/nemowebagency/',
+        'https://www.facebook.com/profile.php?id=61574662467359&locale=it_IT',
+      ],
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+39-329-541-7220',
+        contactType: 'customer service',
+        email: 'nemowebagency@gmail.com',
+        availableLanguage: ['Italian'],
+      },
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'IT',
+        addressRegion: 'Sicilia',
+      },
+    };
 
-    if (path === '/') {
-      structuredData = {
-        '@context': 'https://schema.org',
-        '@type': 'Organization',
+    const webPage = {
+      '@type': 'WebPage',
+      '@id': `${canonical}#webpage`,
+      name: finalTitle,
+      description: finalDescription,
+      url: canonical,
+      inLanguage: 'it-IT',
+      isPartOf: {
+        '@type': 'WebSite',
+        '@id': `${baseUrl}/#website`,
         name: siteName,
         url: baseUrl,
-        logo: `${baseUrl}/icona%20arancione.png`,
-        description: finalDescription,
-        email: 'nemowebagency@gmail.com',
-        sameAs: [
-          'https://www.instagram.com/nemowebagency/',
-          'https://www.facebook.com/profile.php?id=61574662467359&locale=it_IT',
-        ],
-        contactPoint: {
-          '@type': 'ContactPoint',
-          telephone: '+39-329-541-7220',
-          contactType: 'customer service',
-          email: 'nemowebagency@gmail.com',
-          availableLanguage: ['Italian'],
-        },
-        address: {
-          '@type': 'PostalAddress',
-          addressCountry: 'IT',
-          addressRegion: 'Sicilia',
-        },
-      };
-    } else {
-      structuredData = {
-        '@context': 'https://schema.org',
-        '@type': 'WebPage',
-        name: finalTitle,
-        description: finalDescription,
-        url: canonical,
-        inLanguage: 'it-IT',
-        isPartOf: {
-          '@type': 'WebSite',
-          name: siteName,
-          url: baseUrl,
-        },
-      };
+        publisher: { '@id': `${baseUrl}/#organization` },
+      },
+    };
+
+    const graph = path === '/' ? [organization, webPage] : [webPage];
+
+    const faqs = getGeoFaqs(path);
+    if (faqs?.length) {
+      graph.push({
+        '@type': 'FAQPage',
+        '@id': `${canonical}#faq`,
+        mainEntity: faqs.map(({ question, answer }) => ({
+          '@type': 'Question',
+          name: question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: answer,
+          },
+        })),
+      });
     }
+
+    const structuredData = {
+      '@context': 'https://schema.org',
+      '@graph': graph,
+    };
 
     jsonLdScript.textContent = JSON.stringify(structuredData);
     document.documentElement.lang = 'it';

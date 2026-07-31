@@ -55,8 +55,9 @@ const HomeCtaSection = () => (
             </h2>
             <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
               <p>
-                Nemo unisce design, sviluppo e strategia in progetti pensati
-                per durare nel tempo.
+                Nemo Web Agency è il partner digitale che unisce design,
+                sviluppo e strategia in progetti web pensati per durare nel
+                tempo e portare risultati concreti.
               </p>
               <p>
                 Ogni progetto è un percorso condiviso: partiamo dagli obiettivi
